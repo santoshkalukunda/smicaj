@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <div class="row">
         <div class="col-sm-6">
-            <h3 class="my-2"> Dashboard</h3>
+            <h3 class="my-2"> {{$title = "Dashboard" }} </h3>
         </div><!-- /.col -->
     </div><!-- /.row -->
 
