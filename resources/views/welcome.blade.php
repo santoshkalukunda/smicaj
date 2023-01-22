@@ -60,13 +60,13 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12" style="padding-top: 100px; padding-bottom: 80px;">
-                    <div class="fs-1 fs-bold p-4 text-center">Our Services</div>
+                    <div class="fs-1 fs-bold py-5 text-center">Our Services</div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="card text-bg-success" style="height: 20rem;">
+                            <div class="card text-bg-success" style="height: 27rem;">
                                 <div class="card-header fs-2">Data Analysis</div>
                                 <div class="card-body text-center">
-                                    <p class="card-text fs-5">SMICAJ Data Analytics Is A Revolutionary Product That Combines
+                                    <p class="card-text fs-4">SMICAJ Data Analytics Is A Revolutionary Product That Combines
                                         Fundamental Analysis, Technical Analysis, And Floorsheet Analysis To Give Investors
                                         A Detailed Insight Into A Stock, Which Will Ultimately Help Investors Make Better
                                         BUY | SELL Decisions.</p>
@@ -75,10 +75,10 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card text-bg-success" style="height: 20rem;">
+                            <div class="card text-bg-success" style="height: 27rem;">
                                 <div class="card-header fs-2">Technical Data</div>
                                 <div class="card-body text-center">
-                                    <p class="card-text fs-5"> MetaStock Contains Powerful Technical Analysis Tools To Help
+                                    <p class="card-text fs-4"> MetaStock Contains Powerful Technical Analysis Tools To Help
                                         You Make Informed
                                         Decisions About What To Buy And Sell And When To Execute To Make The Most Profita
                                     </p>
@@ -87,10 +87,10 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card text-bg-success" style="height: 20rem;">
+                            <div class="card text-bg-success" style="height: 27rem;">
                                 <div class="card-header fs-2">Portfolio</div>
                                 <div class="card-body text-center">
-                                    <p class="card-text fs-5"> Online Utility That Helps To Track All Investments And Make
+                                    <p class="card-text fs-4"> Online Utility That Helps To Track All Investments And Make
                                         Investors Aware Of Their Gains And Losses.</p>
                                     <a href="#" class="btn btn-primary">More..</a>
                                 </div>

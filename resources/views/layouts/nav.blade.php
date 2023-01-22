@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-lg-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand text-success fd-bold fs-3" href="{{ url('/') }}" >
+            {{-- <img src="{{asset('img/logo.png')}}" alt="" srcset="" style="max-height: 40px;"> --}}
             {{ config('app.name', 'SMICAJ') }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -15,7 +16,7 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto fs-5">
                 <!-- Authentication Links -->
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>

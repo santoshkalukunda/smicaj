@@ -21,8 +21,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['middleware' => ['role:admin|super-admin|user']], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
 Route::group(['middleware' => ['role:admin|super-admin']], function () {
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+   
 });
 
 Route::group(['middleware' => ['role:super-admin']], function () {

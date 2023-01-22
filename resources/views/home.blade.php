@@ -3,11 +3,40 @@
     <!-- Content Header (Page header) -->
     <div class="row">
         <div class="col-sm-6">
-            <h3 class="my-2"> {{$title = "Dashboard" }} </h3>
+            <h3 class="my-2"> {{ $title = 'Dashboard' }} </h3>
         </div><!-- /.col -->
     </div><!-- /.row -->
 
-    <!-- /.content-header -->
+    <div class="row justify-content-center">
+        <div class="col-md-12 py-5">
+            <div class="fs-1 py-4 text-center">Trading View Chart</div>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div id="tradingview_72c60"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.widget({
+                        "width": 1400,
+                        "height": 750,
+                        "symbol": "NASDAQ:AAPL",
+                        "interval": "D",
+                        "timezone": "Asia/Kathmandu",
+                        "theme": "light",
+                        "style": "1",
+                        "locale": "en",
+                        "toolbar_bg": "#f1f3f6",
+                        "enable_publishing": false,
+                        "withdateranges": true,
+                        "hide_side_toolbar": false,
+                        "allow_symbol_change": true,
+                        "container_id": "tradingview_72c60"
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+    {{-- <!-- /.content-header -->
     <div class="row">
         <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -15,7 +44,7 @@
                 <div class="inner">
                     <h3>150</h3>
 
-                    <p>New Orders</p>
+                    <p>New User</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -76,5 +105,5 @@
             <!-- /.card -->
         </section>
         <!-- /.Left col -->
-    </div>
+    </div> --}}
 @endsection
