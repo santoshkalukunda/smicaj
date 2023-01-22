@@ -110,51 +110,14 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-md-12">
+                <div class="col-md-12 bg-white shadow-sm">
                     <div class="wrapper">
                         <div class="row no-gutters">
                             <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
-                                <div class="contact-wrap w-100 p-md-5 p-4">
+                                <div class="contact-wrap w-100 py-3 px-md-5 px-4">
                                     <h3 class="mb-4">Get in touch</h3>
                                     <div id="form-message-warning" class="mb-4"></div>
-                                    <form method="POST" id="contactForm">
-                                        @csrf
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="label" for="name">Full Name</label>
-                                                    <input type="text" class="form-control" name="name" id="name"
-                                                        placeholder="Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="label" for="email">Email Address</label>
-                                                    <input type="email" class="form-control" name="email" id="email"
-                                                        placeholder="Email">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="label" for="subject">Subject</label>
-                                                    <input type="text" class="form-control" name="subject" id="subject"
-                                                        placeholder="Subject">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="label" for="#">Message</label>
-                                                    <textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 my-2">
-                                                <div class="form-group">
-                                                    <input type="submit" value="Send Message" class="btn btn-primary">
-                                                    <div class="submitting"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    <livewire:contact-form />
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-5 d-flex align-items-stretch">
@@ -175,7 +138,8 @@
                                             <span class="fa fa-phone"></span>
                                         </div>
                                         <div class="text pl-3">
-                                            <p><span>Phone:</span> <a href="tel://+977-9847507885" class="text-white btn">+977-9847507885</a></p>
+                                            <p><span>Phone:</span> <a href="tel://+977-9847507885"
+                                                    class="text-white btn">+977-9847507885</a></p>
                                         </div>
                                     </div>
                                     <div class="dbox w-100 d-flex align-items-center">
@@ -183,16 +147,15 @@
                                             <span class="fa fa-paper-plane"></span>
                                         </div>
                                         <div class="text pl-3">
-                                            <p><span>Email:</span> <a
-                                                    href="info@smicaj.com"><span
-                                                    class="text-white btn">info@smicaj.com</span></a>
+                                            <p><span>Email:</span> <a href="info@smicaj.com"><span
+                                                        class="text-white btn">info@smicaj.com</span></a>
                                             </p>
                                         </div>
                                     </div>
                                     <div>
                                         <span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48"
-                                                height="48" viewBox="0 0 48 48">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                width="48" height="48" viewBox="0 0 48 48">
                                                 <path fill="#039be5" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z"></path>
                                                 <path fill="#fff"
                                                     d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z">
@@ -200,8 +163,8 @@
                                             </svg>
                                         </span>
                                         <span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48"
-                                                height="48" viewBox="0 0 48 48">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                width="48" height="48" viewBox="0 0 48 48">
                                                 <path fill="#fff"
                                                     d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z">
                                                 </path>

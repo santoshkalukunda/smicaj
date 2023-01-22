@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @livewireStyles
 </head>
 
 <body>
@@ -29,7 +30,7 @@
             @yield('content')
         </main>
     </div>
-    <div class="bg-success p-4 text-white">
+    <footer class="bg-success p-4 text-white">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -87,6 +88,6 @@
             </div>
         </div>
     </div>
+    @livewireScripts
 </body>
-
 </html>
