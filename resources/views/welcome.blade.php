@@ -4,7 +4,7 @@
     <div>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12">
+                <div class="col-md-12 py-5">
                     <div class="fs-1 py-4 text-center">Trading View Chart</div>
                     <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
@@ -12,8 +12,8 @@
                         <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
                         <script type="text/javascript">
                             new TradingView.widget({
-                                "width": 1200,
-                                "height": 610,
+                                "width": 1400,
+                                "height": 750,
                                 "symbol": "NASDAQ:AAPL",
                                 "interval": "D",
                                 "timezone": "Asia/Kathmandu",

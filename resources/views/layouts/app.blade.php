@@ -26,11 +26,11 @@
     <div id="app">
         @include('layouts.nav')
 
-        <main class="py-4">
+        <main class="py-4" style="min-height: 70vh">
             @yield('content')
         </main>
     </div>
-    <footer class="bg-success p-4 text-white">
+    <footer class="bg-success p-4 text-white fs-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -69,25 +69,34 @@
                             </svg>
                         </span>
                     </div>
+                    <div>
+                        © {{date('Y')}}, {{ config('app.name', 'SMICAJ') }} All rights reserved.
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <h2>Links</h2>
-                    <div><a href="{{route('pages.show',"support")}}" class="text-white text-decoration-none">Support</a></div>
-                    <div><a href="{{route('pages.show',"pricing")}}" class="text-white text-decoration-none">Pricing</a></div>
-                    <div><a href="{{route('pages.show',"privacy-policy")}}" class="text-white text-decoration-none">Privacy Policy</a></div>
-                    <div><a href="{{route('pages.show',"terms-&-conditions")}}" class="text-white text-decoration-none">Terms & Conditions</a></div>
+                    <div><a href="{{ route('pages.show', 'support') }}"
+                            class="text-white text-decoration-none">Support</a></div>
+                    <div><a href="{{ route('pages.show', 'pricing') }}"
+                            class="text-white text-decoration-none">Pricing</a></div>
+                    <div><a href="{{ route('pages.show', 'privacy-policy') }}"
+                            class="text-white text-decoration-none">Privacy Policy</a></div>
+                    <div><a href="{{ route('pages.show', 'terms-&-conditions') }}"
+                            class="text-white text-decoration-none">Terms & Conditions</a></div>
                 </div>
                 <div class="col-md-4">
                     <h2>Payment Partners</h2>
-                 <div>
-                    <img src="{{asset('img/esewa-new.png')}}" alt="esewa" srcset="" style="height: 40px;">
-                    <img src="{{asset('img/khalti-final.png')}}" alt="khalti" srcset="" style="height: 40px;">
-                    <img src="{{asset('img/IMEPAY-new.png')}}" alt="IMEPAY" srcset="" style="height: 40px;">
-                 </div>
+                    <div>
+                        <img src="{{ asset('img/esewa-new.png') }}" alt="esewa" srcset="" style="height: 40px;">
+                        <img src="{{ asset('img/khalti-final.png') }}" alt="khalti" srcset=""
+                            style="height: 40px;">
+                        <img src="{{ asset('img/IMEPAY-new.png') }}" alt="IMEPAY" srcset=""
+                            style="height: 40px;">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    @livewireScripts
+        </div>
+        @livewireScripts
 </body>
+
 </html>
