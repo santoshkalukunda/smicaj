@@ -31,16 +31,7 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Widgets
-                            <span class="right badge badge-danger">New</span>
-                        </p>
-                    </a>
-                </li> --}}
-                <li class="nav-header">Intraday Trading</li>
+                {{-- <li class="nav-header">Intraday Trading</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
@@ -162,16 +153,19 @@
                             </a>
                         </li>
                     </ul>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('trading-settings.index') }}">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        {{ __('Trading Setting') }}
+                    </a>
                 </li>
-                @role('super-admin')
-                <hr>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('pages.index') }}">
-                            <i class="bi bi-file-earmark-text-fill"></i>
-                            {{ __('Pages') }}
-                        </a>
-                    </li>
-                @endrole
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('pages.index') }}">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        {{ __('Pages') }}
+                    </a>
+                </li>
                 <hr>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}"
