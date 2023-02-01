@@ -119,6 +119,7 @@
                                 @enderror
                             </div>
                         </div>
+                        
                         <div class="col-md-3">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Indicators</label>
@@ -126,303 +127,425 @@
                                     class="form-select  @error('studies')  is-invalid @enderror"
                                     aria-placeholder="Add indicators" multiple required>
                                     @if ($tradingSetting->id)
+                                   
                                         @foreach ($tradingSetting->indicatorSettings as $indicatorSetting)
-                                            <option value="ACCD@tv-basicstudies" {{ $indicatorSetting->value == 'ACCD@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Accum/Dist">
+                                       
+                                            <option value="ACCD@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'ACCD@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Accum/Dist">
                                                 Accumulation/Distribution
                                             </option>
-                                            <option value="studyADR@tv-basicstudies" {{ $indicatorSetting->value == 'studyADR@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="ADR">ADR</option>
-                                            <option value="AROON@tv-basicstudies" {{ $indicatorSetting->value == 'AROON@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Aroon">Aroon</option>
-                                            <option value="ATR@tv-basicstudies" {{ $indicatorSetting->value == 'ATR@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="ATR">Average True Range
+                                            <option value="studyADR@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'studyADR@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="ADR">ADR</option>
+                                            <option value="AROON@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'AROON@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Aroon">Aroon</option>
+                                            <option value="ATR@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'ATR@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="ATR">Average True Range
                                             </option>
-                                            <option value="AwesomeOscillator@tv-basicstudies" {{ $indicatorSetting->value == 'AwesomeOscillator@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="AO">Awesome
+                                            <option value="AwesomeOscillator@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'AwesomeOscillator@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="AO">Awesome
                                                 Oscillator
                                             </option>
-                                            <option value="BB@tv-basicstudies" {{ $indicatorSetting->value == 'BB@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="BB">Bollinger Bands</option>
-                                            <option value="BollingerBandsR@tv-basicstudies" {{ $indicatorSetting->value == 'BollingerBandsR@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="BB %B">
+                                            <option value="BB@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'BB@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="BB">Bollinger Bands</option>
+                                            <option value="BollingerBandsR@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'BollingerBandsR@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="BB %B">
                                                 Bollinger Bands
                                                 %B
                                             </option>
-                                            <option value="BollingerBandsWidth@tv-basicstudies" {{ $indicatorSetting->value == 'BollingerBandsWidth@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="BBW">
+                                            <option value="BollingerBandsWidth@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'BollingerBandsWidth@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="BBW">
                                                 Bollinger
                                                 Bands
                                                 Width</option>
-                                            <option value="CMF@tv-basicstudies" {{ $indicatorSetting->value == 'CMF@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="CMF">Chaikin Money Flow
+                                            <option value="CMF@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'CMF@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="CMF">Chaikin Money Flow
                                             </option>
-                                            <option value="ChaikinOscillator@tv-basicstudies" {{ $indicatorSetting->value == 'ChaikinOscillator@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Chaikin Osc">
+                                            <option value="ChaikinOscillator@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'ChaikinOscillator@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Chaikin Osc">
                                                 Chaikin
                                                 Oscillator</option>
-                                            <option value="chandeMO@tv-basicstudies" {{ $indicatorSetting->value == 'chandeMO@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="ChandeMO">Chande
+                                            <option value="chandeMO@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'chandeMO@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="ChandeMO">Chande
                                                 Momentum
                                                 Oscillator
                                             </option>
-                                            <option value="ChoppinessIndex@tv-basicstudies" {{ $indicatorSetting->value == 'ChoppinessIndex@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="CHOP">
+                                            <option value="ChoppinessIndex@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'ChoppinessIndex@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="CHOP">
                                                 Choppiness Index
                                             </option>
-                                            <option value="CCI@tv-basicstudies" {{ $indicatorSetting->value == 'CCI@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="CCI">Commodity Channel
+                                            <option value="CCI@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'CCI@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="CCI">Commodity Channel
                                                 Index
                                             </option>
-                                            <option value="CRSI@tv-basicstudies" {{ $indicatorSetting->value == 'CRSI@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="CRSI">ConnorsRSI</option>
-                                            <option value="CorrelationCoefficient@tv-basicstudies" {{ $indicatorSetting->value == 'CorrelationCoefficient@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="CC">
+                                            <option value="CRSI@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'CRSI@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="CRSI">ConnorsRSI</option>
+                                            <option value="CorrelationCoefficient@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'CorrelationCoefficient@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="CC">
                                                 Correlation
                                                 Coefficient</option>
                                             <option value="DetrendedPriceOscillator@tv-basicstudies"
-                                                {{ $indicatorSetting->value == 'DetrendedPriceOscillator@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="DPO">
+                                                {{ $indicatorSetting->value == 'DetrendedPriceOscillator@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="DPO">
                                                 Detrended Price
                                                 Oscillator</option>
-                                            <option value="DM@tv-basicstudies" {{ $indicatorSetting->value == 'DM@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="DMI">Directional Movement
+                                            <option value="DM@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'DM@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="DMI">Directional Movement
                                             </option>
-                                            <option value="DONCH@tv-basicstudies" {{ $indicatorSetting->value == 'DONCH@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="DC">Donchian Channels
+                                            <option value="DONCH@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'DONCH@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="DC">Donchian Channels
                                             </option>
-                                            <option value="DoubleEMA@tv-basicstudies" {{ $indicatorSetting->value == 'DoubleEMA@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="DEMA">Double EMA
+                                            <option value="DoubleEMA@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'DoubleEMA@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="DEMA">Double EMA
                                             </option>
-                                            <option value="EaseOfMovement@tv-basicstudies" {{ $indicatorSetting->value == 'EaseOfMovement@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="EOM">Ease Of
+                                            <option value="EaseOfMovement@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'EaseOfMovement@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="EOM">Ease Of
                                                 Movement
                                             </option>
-                                            <option value="EFI@tv-basicstudies" {{ $indicatorSetting->value == 'EFI@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="EFI">Elder&#39;s Force
+                                            <option value="EFI@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'EFI@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="EFI">Elder&#39;s Force
                                                 Index
                                             </option>
-                                            <option value="ENV@tv-basicstudies" {{ $indicatorSetting->value == 'ENV@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Env">Envelope</option>
-                                            <option value="FisherTransform@tv-basicstudies" {{ $indicatorSetting->value == 'FisherTransform@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Fisher">
+                                            <option value="ENV@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'ENV@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Env">Envelope</option>
+                                            <option value="FisherTransform@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'FisherTransform@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Fisher">
                                                 Fisher
                                                 Transform
                                             </option>
-                                            <option value="HV@tv-basicstudies" {{ $indicatorSetting->value == 'HV@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="HV">Historical Volatility
+                                            <option value="HV@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'HV@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="HV">Historical Volatility
                                             </option>
-                                            <option value="hullMA@tv-basicstudies" {{ $indicatorSetting->value == 'hullMA@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="HMA">Hull Moving
+                                            <option value="hullMA@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'hullMA@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="HMA">Hull Moving
                                                 Average
                                             </option>
-                                            <option value="IchimokuCloud@tv-basicstudies" {{ $indicatorSetting->value == 'IchimokuCloud@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Ichimoku">
+                                            <option value="IchimokuCloud@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'IchimokuCloud@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Ichimoku">
                                                 Ichimoku
                                                 Cloud
                                             </option>
-                                            <option value="KLTNR@tv-basicstudies" {{ $indicatorSetting->value == 'KLTNR@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="KC">Keltner Channels
+                                            <option value="KLTNR@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'KLTNR@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="KC">Keltner Channels
                                             </option>
-                                            <option value="KST@tv-basicstudies" {{ $indicatorSetting->value == 'KST@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="KST">Know Sure Thing
+                                            <option value="KST@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'KST@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="KST">Know Sure Thing
                                             </option>
-                                            <option value="LinearRegression@tv-basicstudies" {{ $indicatorSetting->value == 'LinearRegression@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Lin Reg">
+                                            <option value="LinearRegression@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'LinearRegression@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Lin Reg">
                                                 Linear
                                                 Regression
                                             </option>
-                                            <option value="MACD@tv-basicstudies" {{ $indicatorSetting->value == 'MACD@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="MACD">MACD</option>
-                                            <option value="MOM@tv-basicstudies" {{ $indicatorSetting->value == 'MOM@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Mom">Momentum</option>
-                                            <option value="MF@tv-basicstudies" {{ $indicatorSetting->value == 'MF@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="MFl">Money Flow</option>
-                                            <option value="MoonPhases@tv-basicstudies" {{ $indicatorSetting->value == 'MoonPhases@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="MP">Moon Phases
+                                            <option value="MACD@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'MACD@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="MACD">MACD</option>
+                                            <option value="MOM@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'MOM@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Mom">Momentum</option>
+                                            <option value="MF@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'MF@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="MFl">Money Flow</option>
+                                            <option value="MoonPhases@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'MoonPhases@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="MP">Moon Phases
                                             </option>
-                                            <option value="MASimple@tv-basicstudies" {{ $indicatorSetting->value == 'MASimple@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="MA">Moving Average
+                                            <option value="MASimple@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'MASimple@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="MA">Moving Average
                                             </option>
-                                            <option value="MAExp@tv-basicstudies" {{ $indicatorSetting->value == 'MAExp@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="EMA">Moving Average
+                                            <option value="MAExp@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'MAExp@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="EMA">Moving Average
                                                 Exponential
                                             </option>
-                                            <option value="MAWeighted@tv-basicstudies" {{ $indicatorSetting->value == 'MAWeighted@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="WMA">Moving
+                                            <option value="MAWeighted@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'MAWeighted@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="WMA">Moving
                                                 Average
                                                 Weighted
                                             </option>
-                                            <option value="OBV@tv-basicstudies" {{ $indicatorSetting->value == 'OBV@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="OBV">On Balance Volume
+                                            <option value="OBV@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'OBV@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="OBV">On Balance Volume
                                             </option>
-                                            <option value="PSAR@tv-basicstudies" {{ $indicatorSetting->value == 'PSAR@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="SAR">Parabolic SAR
+                                            <option value="PSAR@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'PSAR@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="SAR">Parabolic SAR
                                             </option>
                                             <option value="PivotPointsHighLow@tv-basicstudies"
-                                                {{ $indicatorSetting->value == 'PivotPointsHighLow@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Pivots HL">Pivot
+                                                {{ $indicatorSetting->value == 'PivotPointsHighLow@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Pivots HL">Pivot
                                                 Points
                                                 High Low</option>
-                                            <option value="PivotPointsStandard@tv-basicstudies" {{ $indicatorSetting->value == 'PivotPointsStandard@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Pivots">
+                                            <option value="PivotPointsStandard@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'PivotPointsStandard@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Pivots">
                                                 Pivot
                                                 Points
                                                 Standard</option>
-                                            <option value="PriceOsc@tv-basicstudies" {{ $indicatorSetting->value == 'PriceOsc@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="PPO">Price
+                                            <option value="PriceOsc@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'PriceOsc@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="PPO">Price
                                                 Oscillator
                                             </option>
-                                            <option value="PriceVolumeTrend@tv-basicstudies" {{ $indicatorSetting->value == 'PriceVolumeTrend@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="PVT">Price
+                                            <option value="PriceVolumeTrend@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'PriceVolumeTrend@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="PVT">Price
                                                 Volume
                                                 Trend
                                             </option>
-                                            <option value="ROC@tv-basicstudies" {{ $indicatorSetting->value == 'ROC@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="ROC">Rate Of Change
+                                            <option value="ROC@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'ROC@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="ROC">Rate Of Change
                                             </option>
-                                            <option value="RSI@tv-basicstudies" {{ $indicatorSetting->value == 'RSI@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="RSI">Relative Strength
+                                            <option value="RSI@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'RSI@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="RSI">Relative Strength
                                                 Index
                                             </option>
-                                            <option value="VigorIndex@tv-basicstudies" {{ $indicatorSetting->value == 'VigorIndex@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="RVGI">Relative
+                                            <option value="VigorIndex@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'VigorIndex@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="RVGI">Relative
                                                 Vigor Index
                                             </option>
-                                            <option value="VolatilityIndex@tv-basicstudies" {{ $indicatorSetting->value == 'VolatilityIndex@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="RVI">Relative
+                                            <option value="VolatilityIndex@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'VolatilityIndex@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="RVI">Relative
                                                 Volatility
                                                 Index</option>
-                                            <option value="SMIErgodicIndicator@tv-basicstudies" {{ $indicatorSetting->value == 'SMIErgodicIndicator@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="SMII">SMI
+                                            <option value="SMIErgodicIndicator@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'SMIErgodicIndicator@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="SMII">SMI
                                                 Ergodic
                                                 Indicator</option>
-                                            <option value="SMIErgodicOscillator@tv-basicstudies" {{ $indicatorSetting->value == 'SMIErgodicOscillator@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="SMIO">
+                                            <option value="SMIErgodicOscillator@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'SMIErgodicOscillator@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="SMIO">
                                                 SMI
                                                 Ergodic
                                                 Oscillator</option>
-                                            <option value="Stochastic@tv-basicstudies" {{ $indicatorSetting->value == 'Stochastic@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Stoch">Stochastic
+                                            <option value="Stochastic@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'Stochastic@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Stoch">Stochastic
                                             </option>
-                                            <option value="StochasticRSI@tv-basicstudies" {{ $indicatorSetting->value == 'StochasticRSI@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Stoch RSI">
+                                            <option value="StochasticRSI@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'StochasticRSI@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Stoch RSI">
                                                 Stochastic
                                                 RSI
                                             </option>
-                                            <option value="TripleEMA@tv-basicstudies" {{ $indicatorSetting->value == 'TripleEMA@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="TEMA">Triple EMA
+                                            <option value="TripleEMA@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'TripleEMA@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="TEMA">Triple EMA
                                             </option>
-                                            <option value="Trix@tv-basicstudies" {{ $indicatorSetting->value == 'Trix@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="TRIX">TRIX</option>
-                                            <option value="UltimateOsc@tv-basicstudies" {{ $indicatorSetting->value == 'UltimateOsc@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="UO">Ultimate
+                                            <option value="Trix@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'Trix@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="TRIX">TRIX</option>
+                                            <option value="UltimateOsc@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'UltimateOsc@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="UO">Ultimate
                                                 Oscillator
                                             </option>
-                                            <option value="VSTOP@tv-basicstudies" {{ $indicatorSetting->value == 'VSTOP@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="VStop">Volatility Stop
+                                            <option value="VSTOP@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'VSTOP@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="VStop">Volatility Stop
                                             </option>
-                                            <option value="Volume@tv-basicstudies" {{ $indicatorSetting->value == 'Volume@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Vol">Volume</option>
-                                            <option value="VWAP@tv-basicstudies" {{ $indicatorSetting->value == 'VWAP@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="VWAP">VWAP</option>
-                                            <option value="MAVolumeWeighted@tv-basicstudies" {{ $indicatorSetting->value == 'MAVolumeWeighted@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="VWMA">VWMA
+                                            <option value="Volume@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'Volume@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Vol">Volume</option>
+                                            <option value="VWAP@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'VWAP@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="VWAP">VWAP</option>
+                                            <option value="MAVolumeWeighted@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'MAVolumeWeighted@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="VWMA">VWMA
                                             </option>
-                                            <option value="WilliamR@tv-basicstudies" {{ $indicatorSetting->value == 'WilliamR@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="%R">Williams %R
+                                            <option value="WilliamR@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'WilliamR@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="%R">Williams %R
                                             </option>
-                                            <option value="WilliamsAlligator@tv-basicstudies" {{ $indicatorSetting->value == 'WilliamsAlligator@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Alligator">
+                                            <option value="WilliamsAlligator@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'WilliamsAlligator@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Alligator">
                                                 Williams
                                                 Alligator</option>
-                                            <option value="WilliamsFractal@tv-basicstudies" {{ $indicatorSetting->value == 'WilliamsFractal@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Fractal">
+                                            <option value="WilliamsFractal@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'WilliamsFractal@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Fractal">
                                                 Williams
                                                 Fractal
                                             </option>
-                                            <option value="ZigZag@tv-basicstudies" {{ $indicatorSetting->value == 'ZigZag@tv-basicstudies' ? 'selected' : '' }} attr-short-desc="Zig Zag">Zig Zag
+                                            <option value="ZigZag@tv-basicstudies"
+                                                {{ $indicatorSetting->value == 'ZigZag@tv-basicstudies' ? 'selected' : '' }}
+                                                attr-short-desc="Zig Zag">Zig Zag
                                             </option>
                                         @endforeach
                                     @else
-                                        <option value="ACCD@tv-basicstudies"  attr-short-desc="Accum/Dist">
+                                        <option value="ACCD@tv-basicstudies" attr-short-desc="Accum/Dist">
                                             Accumulation/Distribution
                                         </option>
-                                        <option value="studyADR@tv-basicstudies"  attr-short-desc="ADR">ADR</option>
-                                        <option value="AROON@tv-basicstudies"  attr-short-desc="Aroon">Aroon</option>
-                                        <option value="ATR@tv-basicstudies"  attr-short-desc="ATR">Average True Range
+                                        <option value="studyADR@tv-basicstudies" attr-short-desc="ADR">ADR</option>
+                                        <option value="AROON@tv-basicstudies" attr-short-desc="Aroon">Aroon</option>
+                                        <option value="ATR@tv-basicstudies" attr-short-desc="ATR">Average True Range
                                         </option>
-                                        <option value="AwesomeOscillator@tv-basicstudies"  attr-short-desc="AO">Awesome
+                                        <option value="AwesomeOscillator@tv-basicstudies" attr-short-desc="AO">Awesome
                                             Oscillator
                                         </option>
-                                        <option value="BB@tv-basicstudies"  attr-short-desc="BB">Bollinger Bands</option>
-                                        <option value="BollingerBandsR@tv-basicstudies"  attr-short-desc="BB %B">Bollinger
+                                        <option value="BB@tv-basicstudies" attr-short-desc="BB">Bollinger Bands</option>
+                                        <option value="BollingerBandsR@tv-basicstudies" attr-short-desc="BB %B">Bollinger
                                             Bands
                                             %B
                                         </option>
-                                        <option value="BollingerBandsWidth@tv-basicstudies"  attr-short-desc="BBW">
+                                        <option value="BollingerBandsWidth@tv-basicstudies" attr-short-desc="BBW">
                                             Bollinger
                                             Bands
                                             Width</option>
-                                        <option value="CMF@tv-basicstudies"  attr-short-desc="CMF">Chaikin Money Flow
+                                        <option value="CMF@tv-basicstudies" attr-short-desc="CMF">Chaikin Money Flow
                                         </option>
-                                        <option value="ChaikinOscillator@tv-basicstudies"  attr-short-desc="Chaikin Osc">
+                                        <option value="ChaikinOscillator@tv-basicstudies" attr-short-desc="Chaikin Osc">
                                             Chaikin
                                             Oscillator</option>
-                                        <option value="chandeMO@tv-basicstudies"  attr-short-desc="ChandeMO">Chande
+                                        <option value="chandeMO@tv-basicstudies" attr-short-desc="ChandeMO">Chande
                                             Momentum
                                             Oscillator
                                         </option>
-                                        <option value="ChoppinessIndex@tv-basicstudies"  attr-short-desc="CHOP">Choppiness
+                                        <option value="ChoppinessIndex@tv-basicstudies" attr-short-desc="CHOP">Choppiness
                                             Index
                                         </option>
-                                        <option value="CCI@tv-basicstudies"  attr-short-desc="CCI">Commodity Channel Index
+                                        <option value="CCI@tv-basicstudies" attr-short-desc="CCI">Commodity Channel Index
                                         </option>
-                                        <option value="CRSI@tv-basicstudies"  attr-short-desc="CRSI">ConnorsRSI</option>
-                                        <option value="CorrelationCoefficient@tv-basicstudies"  attr-short-desc="CC">
+                                        <option value="CRSI@tv-basicstudies" attr-short-desc="CRSI">ConnorsRSI</option>
+                                        <option value="CorrelationCoefficient@tv-basicstudies" attr-short-desc="CC">
                                             Correlation
                                             Coefficient</option>
-                                        <option value="DetrendedPriceOscillator@tv-basicstudies"  attr-short-desc="DPO">
+                                        <option value="DetrendedPriceOscillator@tv-basicstudies" attr-short-desc="DPO">
                                             Detrended Price
                                             Oscillator</option>
-                                        <option value="DM@tv-basicstudies"  attr-short-desc="DMI">Directional Movement
+                                        <option value="DM@tv-basicstudies" attr-short-desc="DMI">Directional Movement
                                         </option>
-                                        <option value="DONCH@tv-basicstudies"  attr-short-desc="DC">Donchian Channels
+                                        <option value="DONCH@tv-basicstudies" attr-short-desc="DC">Donchian Channels
                                         </option>
-                                        <option value="DoubleEMA@tv-basicstudies"  attr-short-desc="DEMA">Double EMA
+                                        <option value="DoubleEMA@tv-basicstudies" attr-short-desc="DEMA">Double EMA
                                         </option>
-                                        <option value="EaseOfMovement@tv-basicstudies"  attr-short-desc="EOM">Ease Of
+                                        <option value="EaseOfMovement@tv-basicstudies" attr-short-desc="EOM">Ease Of
                                             Movement
                                         </option>
-                                        <option value="EFI@tv-basicstudies"  attr-short-desc="EFI">Elder&#39;s Force Index
+                                        <option value="EFI@tv-basicstudies" attr-short-desc="EFI">Elder&#39;s Force Index
                                         </option>
-                                        <option value="ENV@tv-basicstudies"  attr-short-desc="Env">Envelope</option>
-                                        <option value="FisherTransform@tv-basicstudies"  attr-short-desc="Fisher">Fisher
+                                        <option value="ENV@tv-basicstudies" attr-short-desc="Env">Envelope</option>
+                                        <option value="FisherTransform@tv-basicstudies" attr-short-desc="Fisher">Fisher
                                             Transform
                                         </option>
-                                        <option value="HV@tv-basicstudies"  attr-short-desc="HV">Historical Volatility
+                                        <option value="HV@tv-basicstudies" attr-short-desc="HV">Historical Volatility
                                         </option>
-                                        <option value="hullMA@tv-basicstudies"  attr-short-desc="HMA">Hull Moving Average
+                                        <option value="hullMA@tv-basicstudies" attr-short-desc="HMA">Hull Moving Average
                                         </option>
-                                        <option value="IchimokuCloud@tv-basicstudies"  attr-short-desc="Ichimoku">Ichimoku
+                                        <option value="IchimokuCloud@tv-basicstudies" attr-short-desc="Ichimoku">Ichimoku
                                             Cloud
                                         </option>
-                                        <option value="KLTNR@tv-basicstudies"  attr-short-desc="KC">Keltner Channels
+                                        <option value="KLTNR@tv-basicstudies" attr-short-desc="KC">Keltner Channels
                                         </option>
-                                        <option value="KST@tv-basicstudies"  attr-short-desc="KST">Know Sure Thing</option>
-                                        <option value="LinearRegression@tv-basicstudies"  attr-short-desc="Lin Reg">Linear
+                                        <option value="KST@tv-basicstudies" attr-short-desc="KST">Know Sure Thing</option>
+                                        <option value="LinearRegression@tv-basicstudies" attr-short-desc="Lin Reg">Linear
                                             Regression
                                         </option>
-                                        <option value="MACD@tv-basicstudies"  attr-short-desc="MACD">MACD</option>
-                                        <option value="MOM@tv-basicstudies"  attr-short-desc="Mom">Momentum</option>
-                                        <option value="MF@tv-basicstudies"  attr-short-desc="MFl">Money Flow</option>
-                                        <option value="MoonPhases@tv-basicstudies"  attr-short-desc="MP">Moon Phases
+                                        <option value="MACD@tv-basicstudies" attr-short-desc="MACD">MACD</option>
+                                        <option value="MOM@tv-basicstudies" attr-short-desc="Mom">Momentum</option>
+                                        <option value="MF@tv-basicstudies" attr-short-desc="MFl">Money Flow</option>
+                                        <option value="MoonPhases@tv-basicstudies" attr-short-desc="MP">Moon Phases
                                         </option>
-                                        <option value="MASimple@tv-basicstudies"  attr-short-desc="MA">Moving Average
+                                        <option value="MASimple@tv-basicstudies" attr-short-desc="MA">Moving Average
                                         </option>
-                                        <option value="MAExp@tv-basicstudies"  attr-short-desc="EMA">Moving Average
+                                        <option value="MAExp@tv-basicstudies" attr-short-desc="EMA">Moving Average
                                             Exponential
                                         </option>
-                                        <option value="MAWeighted@tv-basicstudies"  attr-short-desc="WMA">Moving Average
+                                        <option value="MAWeighted@tv-basicstudies" attr-short-desc="WMA">Moving Average
                                             Weighted
                                         </option>
-                                        <option value="OBV@tv-basicstudies"  attr-short-desc="OBV">On Balance Volume
+                                        <option value="OBV@tv-basicstudies" attr-short-desc="OBV">On Balance Volume
                                         </option>
-                                        <option value="PSAR@tv-basicstudies"  attr-short-desc="SAR">Parabolic SAR</option>
-                                        <option value="PivotPointsHighLow@tv-basicstudies"  attr-short-desc="Pivots HL">
+                                        <option value="PSAR@tv-basicstudies" attr-short-desc="SAR">Parabolic SAR</option>
+                                        <option value="PivotPointsHighLow@tv-basicstudies" attr-short-desc="Pivots HL">
                                             Pivot
                                             Points
                                             High Low</option>
-                                        <option value="PivotPointsStandard@tv-basicstudies"  attr-short-desc="Pivots">Pivot
+                                        <option value="PivotPointsStandard@tv-basicstudies" attr-short-desc="Pivots">Pivot
                                             Points
                                             Standard</option>
-                                        <option value="PriceOsc@tv-basicstudies"  attr-short-desc="PPO">Price Oscillator
+                                        <option value="PriceOsc@tv-basicstudies" attr-short-desc="PPO">Price Oscillator
                                         </option>
-                                        <option value="PriceVolumeTrend@tv-basicstudies"  attr-short-desc="PVT">Price
+                                        <option value="PriceVolumeTrend@tv-basicstudies" attr-short-desc="PVT">Price
                                             Volume
                                             Trend
                                         </option>
-                                        <option value="ROC@tv-basicstudies"  attr-short-desc="ROC">Rate Of Change</option>
-                                        <option value="RSI@tv-basicstudies"  attr-short-desc="RSI">Relative Strength Index
+                                        <option value="ROC@tv-basicstudies" attr-short-desc="ROC">Rate Of Change</option>
+                                        <option value="RSI@tv-basicstudies" attr-short-desc="RSI">Relative Strength Index
                                         </option>
-                                        <option value="VigorIndex@tv-basicstudies"  attr-short-desc="RVGI">Relative Vigor
+                                        <option value="VigorIndex@tv-basicstudies" attr-short-desc="RVGI">Relative Vigor
                                             Index
                                         </option>
-                                        <option value="VolatilityIndex@tv-basicstudies"  attr-short-desc="RVI">Relative
+                                        <option value="VolatilityIndex@tv-basicstudies" attr-short-desc="RVI">Relative
                                             Volatility
                                             Index</option>
-                                        <option value="SMIErgodicIndicator@tv-basicstudies"  attr-short-desc="SMII">SMI
+                                        <option value="SMIErgodicIndicator@tv-basicstudies" attr-short-desc="SMII">SMI
                                             Ergodic
                                             Indicator</option>
-                                        <option value="SMIErgodicOscillator@tv-basicstudies"  attr-short-desc="SMIO">SMI
+                                        <option value="SMIErgodicOscillator@tv-basicstudies" attr-short-desc="SMIO">SMI
                                             Ergodic
                                             Oscillator</option>
-                                        <option value="Stochastic@tv-basicstudies"  attr-short-desc="Stoch">Stochastic
+                                        <option value="Stochastic@tv-basicstudies" attr-short-desc="Stoch">Stochastic
                                         </option>
-                                        <option value="StochasticRSI@tv-basicstudies"  attr-short-desc="Stoch RSI">
+                                        <option value="StochasticRSI@tv-basicstudies" attr-short-desc="Stoch RSI">
                                             Stochastic
                                             RSI
                                         </option>
-                                        <option value="TripleEMA@tv-basicstudies"  attr-short-desc="TEMA">Triple EMA
+                                        <option value="TripleEMA@tv-basicstudies" attr-short-desc="TEMA">Triple EMA
                                         </option>
-                                        <option value="Trix@tv-basicstudies"  attr-short-desc="TRIX">TRIX</option>
-                                        <option value="UltimateOsc@tv-basicstudies"  attr-short-desc="UO">Ultimate
+                                        <option value="Trix@tv-basicstudies" attr-short-desc="TRIX">TRIX</option>
+                                        <option value="UltimateOsc@tv-basicstudies" attr-short-desc="UO">Ultimate
                                             Oscillator
                                         </option>
-                                        <option value="VSTOP@tv-basicstudies"  attr-short-desc="VStop">Volatility Stop
+                                        <option value="VSTOP@tv-basicstudies" attr-short-desc="VStop">Volatility Stop
                                         </option>
-                                        <option value="Volume@tv-basicstudies"  attr-short-desc="Vol">Volume</option>
-                                        <option value="VWAP@tv-basicstudies"  attr-short-desc="VWAP">VWAP</option>
-                                        <option value="MAVolumeWeighted@tv-basicstudies"  attr-short-desc="VWMA">VWMA
+                                        <option value="Volume@tv-basicstudies" attr-short-desc="Vol">Volume</option>
+                                        <option value="VWAP@tv-basicstudies" attr-short-desc="VWAP">VWAP</option>
+                                        <option value="MAVolumeWeighted@tv-basicstudies" attr-short-desc="VWMA">VWMA
                                         </option>
-                                        <option value="WilliamR@tv-basicstudies"  attr-short-desc="%R">Williams %R</option>
-                                        <option value="WilliamsAlligator@tv-basicstudies"  attr-short-desc="Alligator">
+                                        <option value="WilliamR@tv-basicstudies" attr-short-desc="%R">Williams %R</option>
+                                        <option value="WilliamsAlligator@tv-basicstudies" attr-short-desc="Alligator">
                                             Williams
                                             Alligator</option>
-                                        <option value="WilliamsFractal@tv-basicstudies"  attr-short-desc="Fractal">Williams
+                                        <option value="WilliamsFractal@tv-basicstudies" attr-short-desc="Fractal">Williams
                                             Fractal
                                         </option>
-                                        <option value="ZigZag@tv-basicstudies"  attr-short-desc="Zig Zag">Zig Zag</option>
+                                        <option value="ZigZag@tv-basicstudies" attr-short-desc="Zig Zag">Zig Zag</option>
                                     @endif
 
                                 </select>
@@ -747,13 +870,13 @@
     </div>
     <div class="row">
         @if ($tradingSetting->id)
-        <div class="col-md-12">
-            <!-- TradingView Widget BEGIN -->
-            <div class="tradingview-widget-container table-responsive">
-                <div id="tradingview_{{ $tradingSetting->id ?? '00' }}"></div>
+            <div class="col-md-12">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container table-responsive">
+                    <div id="tradingview_{{ $tradingSetting->id ?? '00' }}"></div>
+                </div>
+                <!-- TradingView Widget END -->
             </div>
-            <!-- TradingView Widget END -->
-        </div>
         @endif
     </div>
     @push('scripts')
@@ -800,29 +923,34 @@
             });
         </script>
         @if ($tradingSetting->id)
-        <script type="text/javascript">
-            new TradingView.widget({
-                "width": {{ $tradingSetting->width ?? '900' }},
-                "height": {{ $tradingSetting->height ?? '900' }},
-                "symbol": "NASDAQ:AAPL",
-                "timezone": "{{ $tradingSetting->timezone ?? 'Asia/Kathmandu' }}",
-                "theme": "{{ $tradingSetting->theme ?? 'light' }}",
-                "style": "{{ $tradingSetting->style ?? '1' }}",
-                "locale": "{{ $tradingSetting->locale ?? 'en' }}",
-                "toolbar_bg": "#f1f3f6",
-                "enable_publishing": {{ $tradingSetting->enable_publishing == true ? 'true' : 'false' }},
-                "withdateranges": {{ $tradingSetting->withdateranges == true ? 'true' : 'false' }},
-                "range": "{{ $tradingSetting->range ?? 'YTD' }}",
-                "hide_top_toolbar": {{ $tradingSetting->hide_top_toolbar == true ? 'true' : 'false' }},
-                "hide_side_toolbar": {{ $tradingSetting->hide_side_toolbar == true ? 'true' : 'false' }},
-                "allow_symbol_change": {{ $tradingSetting->allow_symbol_change == true ? 'true' : 'false' }},
-                "save_image": {{ $tradingSetting->save_image == true ? 'true' : 'false' }},
-                "details": {{ $tradingSetting->details == true ? 'true' : 'false' }},
-                "hotlist": {{ $tradingSetting->hotlist == true ? 'true' : 'false' }},
-                "calendar": {{ $tradingSetting->calendar == true ? 'true' : 'false' }},
-                "container_id": "tradingview_{{ $tradingSetting->id ?? '00' }}"
-            });
-        </script>
+            <script type="text/javascript">
+                new TradingView.widget({
+                    "width": {{ $tradingSetting->width ?? '900' }},
+                    "height": {{ $tradingSetting->height ?? '900' }},
+                    "symbol": "NASDAQ:AAPL",
+                    "timezone": "{{ $tradingSetting->timezone ?? 'Asia/Kathmandu' }}",
+                    "theme": "{{ $tradingSetting->theme ?? 'light' }}",
+                    "style": "{{ $tradingSetting->style ?? '1' }}",
+                    "locale": "{{ $tradingSetting->locale ?? 'en' }}",
+                    "toolbar_bg": "#f1f3f6",
+                    "studies": [
+                        @foreach ($tradingSetting->indicatorSettings as $indicatorSetting)
+                         "{{$indicatorSetting->value}}",
+                        @endforeach
+                    ],
+                    "enable_publishing": {{ $tradingSetting->enable_publishing == true ? 'true' : 'false' }},
+                    "withdateranges": {{ $tradingSetting->withdateranges == true ? 'true' : 'false' }},
+                    "range": "{{ $tradingSetting->range ?? 'YTD' }}",
+                    "hide_top_toolbar": {{ $tradingSetting->hide_top_toolbar == true ? 'true' : 'false' }},
+                    "hide_side_toolbar": {{ $tradingSetting->hide_side_toolbar == true ? 'true' : 'false' }},
+                    "allow_symbol_change": {{ $tradingSetting->allow_symbol_change == true ? 'true' : 'false' }},
+                    "save_image": {{ $tradingSetting->save_image == true ? 'true' : 'false' }},
+                    "details": {{ $tradingSetting->details == true ? 'true' : 'false' }},
+                    "hotlist": {{ $tradingSetting->hotlist == true ? 'true' : 'false' }},
+                    "calendar": {{ $tradingSetting->calendar == true ? 'true' : 'false' }},
+                    "container_id": "tradingview_{{ $tradingSetting->id ?? '00' }}"
+                });
+            </script>
         @endif
     @endpush
 @endsection

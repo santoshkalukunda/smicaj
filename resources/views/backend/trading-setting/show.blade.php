@@ -23,6 +23,11 @@
                 "style": "{{ $tradingSetting->style ?? '1' }}",
                 "locale": "{{ $tradingSetting->locale ?? 'en' }}",
                 "toolbar_bg": "#f1f3f6",
+                "studies": [
+                        @foreach ($tradingSetting->indicatorSettings as $indicatorSetting)
+                         "{{$indicatorSetting->value}}",
+                        @endforeach
+                    ],
                 "enable_publishing": {{ $tradingSetting->enable_publishing == true ? 'true' : 'false' }},
                 "withdateranges": {{ $tradingSetting->withdateranges == true ? 'true' : 'false' }},
                 "range": "{{ $tradingSetting->range ?? 'YTD' }}",
