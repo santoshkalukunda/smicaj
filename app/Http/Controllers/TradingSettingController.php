@@ -17,7 +17,8 @@ class TradingSettingController extends Controller
      */
     public function index()
     {
-        return view('backend.trading-setting.index');
+        $tradingSettings = TradingSetting::get();
+        return view('backend.trading-setting.index',compact('tradingSettings'));
     }
 
     /**
@@ -25,9 +26,9 @@ class TradingSettingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(TradingSetting $tradingSetting)
     {
-        return view('backend.trading-setting.create');
+        return view('backend.trading-setting.create',compact('tradingSetting'));
     }
 
     /**
@@ -38,19 +39,39 @@ class TradingSettingController extends Controller
      */
     public function store(StoreTradingSettingRequest $request)
     {
-
-    //    return $request->studies;
-        // return $request->validated();
-        $user = User::findOrFail(Auth::user()->id);
-        $tradingSetting = $user->tradingSetting()->create($request->validated());
-
-
-        foreach ($request->studies as $study) {
-            $tradingSetting->indicatorSettings()->create([
-                'value' => $study,
+        try {
+            $user = User::findOrFail(Auth::user()->id);
+            $tradingSetting = $user->tradingSetting()->create([
+                "trading" => $request->trading,
+                "trading_time" => $request->trading_time,
+                "buy_sell" => $request->buy_sell,
+                "interval" => $request->interval,
+                "style" => $request->style ?? false,
+                "theme" => $request->theme,
+                "timezone" => $request->timezone,
+                "locale" => $request->locale,
+                "range" => $request->range,
+                "width" => $request->width,
+                "height" => $request->height,
+                "hide_top_toolbar" => $request->hide_top_toolbar ?? false,
+                "withdateranges" => $request->withdateranges ?? false,
+                "hide_side_toolbar" => $request->hide_side_toolbar ?? false,
+                "details" => $request->details ?? false,
+                "calendar" => $request->calendar ?? false,
+                "hotlist" => $request->hotlist ?? false,
+                "enable_publishing" => $request->enable_publishing ?? false,
+                "allow_symbol_change" => $request->allow_symbol_change ?? false,
+                "save_image" => $request->save_image?? false,
             ]);
+            foreach ($request->studies as $study) {
+                $tradingSetting->indicatorSettings()->create([
+                    'value' => $study,
+                ]);
+            }
+            return redirect()->route('trading-settings.edit',$tradingSetting)->with('success', 'Your Setting is Created');
+        } catch (\Throwable $th) {
+            return $th;
         }
-        return redirect()->back()->with('success', 'Your Setting is Created');
     }
 
     /**
@@ -61,7 +82,7 @@ class TradingSettingController extends Controller
      */
     public function show(TradingSetting $tradingSetting)
     {
-        //
+        return view('backend.trading-setting.show',compact('tradingSetting'));
     }
 
     /**
@@ -72,7 +93,7 @@ class TradingSettingController extends Controller
      */
     public function edit(TradingSetting $tradingSetting)
     {
-        //
+        return view('backend.trading-setting.create',compact('tradingSetting'));
     }
 
     /**
@@ -84,7 +105,41 @@ class TradingSettingController extends Controller
      */
     public function update(UpdateTradingSettingRequest $request, TradingSetting $tradingSetting)
     {
-        //
+       
+        try {
+            //code...
+            $tradingSetting->update([
+                "trading" => $request->trading,
+                "trading_time" => $request->trading_time,
+                "buy_sell" => $request->buy_sell,
+                "interval" => $request->interval,
+                "style" => $request->style ?? false,
+                "theme" => $request->theme,
+                "timezone" => $request->timezone,
+                "locale" => $request->locale,
+                "range" => $request->range,
+                "width" => $request->width,
+                "height" => $request->height,
+                "hide_top_toolbar" => $request->hide_top_toolbar ?? false,
+                "withdateranges" => $request->withdateranges ?? false,
+                "hide_side_toolbar" => $request->hide_side_toolbar ?? false,
+                "details" => $request->details ?? false,
+                "calendar" => $request->calendar ?? false,
+                "hotlist" => $request->hotlist ?? false,
+                "enable_publishing" => $request->enable_publishing ?? false,
+                "allow_symbol_change" => $request->allow_symbol_change ?? false,
+                "save_image" => $request->save_image?? false,
+            ]);
+            $tradingSetting->indicatorSettings()->delete();
+            foreach ($request->studies as $study) {
+                $tradingSetting->indicatorSettings()->create([
+                    'value' => $study,
+                ]);
+            }
+            return redirect()->back()->with('success', 'Your Setting is Updated');
+        } catch (\Throwable $th) {
+            return $th;
+        }
     }
 
     /**
@@ -95,6 +150,7 @@ class TradingSettingController extends Controller
      */
     public function destroy(TradingSetting $tradingSetting)
     {
-        //
+        $tradingSetting->delete();
+        return redirect()->back()->with('success',"Trading Seleting Deleted");
     }
 }

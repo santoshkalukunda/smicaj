@@ -1,43 +1,69 @@
 <div class="bg-white p-2">
-    <form action="{{ route('trading-settings.store') }}" method="post">
+    <form
+        action="{{ $tradingSetting->id ? route('trading-settings.update', $tradingSetting) : route('trading-settings.store') }}"
+        method="post">
+        @if ($tradingSetting->id)
+            @method('put')
+        @endif
+
         @csrf
         <div class="row">
             <div class="col-md-12">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Trading</label>
-                    <select class="form-select" name="trading" aria-label="Default select example">
+                    <select class="form-select @error('trading')  is-invalid @enderror" name="trading"
+                        aria-label="Default select example" required>
                         <option value="">Select Trading</option>
-                        <option value="intraday_trading">Intraday Trading</option>
+                        <option value="intraday_trading" {{$tradingSetting->intraday_trading ? "selected" : ""}}>Intraday Trading</option>
                         <option value="swing_trading">Swing Trading</option>
                         <option value="long_term-trading">Long Term Trading</option>
                     </select>
+                    @error('trading')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Trading Time</label>
-                    <select class="form-select" name="trading_time" aria-label="Default select example">
+                    <select class="form-select @error('trading_time')  is-invalid @enderror" name="trading_time"
+                        aria-label="Default select example" required>
                         <option value="">Select trading time</option>
                         <option value="very_short_term">Very Short Term</option>
                         <option value="Short_term">Short Term</option>
                         <option value="long_term">Long Term</option>
                     </select>
+                    @error('trading_time')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Buy/Sell</label>
-                    <select class="form-select" name="buy_sell" aria-label="Default select example">
+                    <select class="form-select @error('buy_sell')  is-invalid @enderror" name="buy_sell"
+                        aria-label="Default select example" required>
                         <option value="">Select Buy/Sell</option>
                         <option value="1">Buy</option>
                         <option value="0">Sell</option>
                     </select>
+                    @error('buy_sell')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
+
             </div>
             <div class="col-md-12">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Default Interval</label>
-                    <select class="form-select" name="interval" aria-label="Default select example">
+                    <select class="form-select @error('interval')  is-invalid @enderror" name="interval"
+                        aria-label="Default select example" required>
                         <option selected value="1m">1 minute</option>
                         <option value="3m">3 minutes</option>
                         <option value="5m">5 minutes</option>
@@ -50,13 +76,19 @@
                         <option value="4h">4 hour</option>
                         <option value="D">1 Day</option>
                     </select>
+                    @error('interval')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Indicators</label>
-                    <select id="multi-select" name="studies[]" class="form-select"
-                        aria-placeholder="Add indicators" multiple>
+                    <select id="multi-select" name="studies[]"
+                        class="form-select  @error('studies')  is-invalid @enderror" aria-placeholder="Add indicators"
+                        multiple>
                         {{-- @foreach ($indicators as $indicator)
                             <option value="{{ $indicator->id }}">{{ $indicator->name }}</option>
                         @endforeach --}}
@@ -145,16 +177,13 @@
                         <option value="WilliamsFractal@tv-basicstudies" attr-short-desc="Fractal">Williams Fractal
                         </option>
                         <option value="ZigZag@tv-basicstudies" attr-short-desc="Zig Zag">Zig Zag</option>
-                   
+
                     </select>
-                    @push('scripts')
-                        <script>
-                            $('#multi-select').select2({
-                                theme: 'bootstrap4',
-                                placeholder: "Add Indicatores",
-                            });
-                        </script>
-                    @endpush
+                    @error('')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
 
@@ -407,3 +436,47 @@
         </div>
     </form>
 </div>
+@push('scripts')
+    <script>
+        $('#multi-select').select2({
+            theme: 'bootstrap4',
+            placeholder: "Add Indicatores",
+        });
+
+        $("#multi-select").on("select2:select", function(e) {
+            e.preventDefault();
+            let limite_periodos = $("#schemas").val().length;
+            var element = e.params.data.element;
+            var $element = $(element);
+            $element.detach();
+            $(this).append($element);
+            $(this).trigger("change");
+            $("#multi-select").append('<option value="' + e.params.data.text + '">' + e.params.data.text +
+                '</option>');
+            $('#multi-select').trigger('select2:close');
+            return true;
+        });
+        $('#multi-select').on('select2:unselect', function(event) {
+            var detect = false;
+            var element = event.params.data.text;
+            var selections = $('#multi-select').select2('data');
+            var el = event.params.data.element;
+            var $el = $(el);
+            $el.detach();
+        });
+        $('#multi-select').on('select2:close', function(event) {
+            var select = document.getElementById("periodos");
+            var options = [];
+            document.querySelectorAll('#multi-select > option').forEach(
+                option => options.push(option)
+            );
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+            options.sort((a, b) => parseInt(a.innerText) - parseInt(b.innerText));
+            for (var i in options) {
+                select.appendChild(options[i]);
+            }
+        });
+    </script>
+@endpush

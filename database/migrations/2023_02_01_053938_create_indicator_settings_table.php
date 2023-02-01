@@ -15,7 +15,7 @@ class CreateIndicatorSettingsTable extends Migration
     {
         Schema::create('indicator_settings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('trading_setting_id');
+            $table->foreignId('trading_setting_id')->constrained('trading_settings')->cascadeOnDelete();
             $table->string('value');
             $table->timestamps();
         });

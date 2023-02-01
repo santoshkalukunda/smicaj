@@ -13,7 +13,7 @@ class UpdateTradingSettingRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,28 @@ class UpdateTradingSettingRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "trading" => "required",
+            "trading_time" => "required",
+            "buy_sell" => "required",
+            "interval" => "required",
+            "studies" => "required",
+            "style" => "nullable",
+            "theme" => "nullable",
+            "timezone" => "nullable",
+            "locale" => "nullable",
+            "range" => "nullable",
+            "width" => "required",
+            "height" => "required",
+            "hide_top_toolbar" => "nullable|boolean",
+            "withdateranges" => "nullable|boolean",
+            "hide_side_toolbar" => "nullable|boolean",
+            "details" => "nullable|boolean",
+            "calendar" => "nullable|boolean",
+            "hotlist" => "nullable|boolean",
+            "enable_publishing" => "nullable|boolean",
+            "allow_symbol_change" => "nullable|boolean",
+            "save_image" => "nullable|boolean",
+            
         ];
     }
 }

@@ -1,13 +1,13 @@
 @extends('backend.app')
 @section('content')
-    <!-- Content Header (Page header) -->
+    <!-- Content Header (tradingSetting header) -->
     <div class="row py-2">
         <div class="col-sm-6">
             <h3> {{ $title = 'Trading Setting' }} </h3>
         </div><!-- /.col -->
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('trading-settings.create')}}">Add New</a></li>
+              <li class="breadcrumb-item"><a href="{{route('trading-settings.create')}}">Add New Setting</a></li>
             </ol>
           </div><!-- /.col -->
     </div><!-- /.row -->
@@ -23,29 +23,66 @@
                     </h3>
                 </div><!-- /.card-header -->
                 <div class="card-body">
-                    <div class="tab-content p-0">
-                        <table class="table table-md">
+                    <div class="tab-content p-0  table-responsive">
+                        <table class="table table-md table-bordered">
                             <tr>
                                 <th>SN</th>
-                                <th>Title</th>
-                                <th>Slug</th>
-                                <th></th>
+                                <th>Trading</th>
+                                <th>Trading Time</th>
+                                <th>Buy/Sell</th>
+                                <th>Intraval</th>
+                                <th>Style</th>
+                                <th>Theme</th>
+                                <th>Timezone</th>
+                                <th>Locale</th>
+                                <th>Range</th>
+                                <th>Width</th>
+                                <th>Height</th>
+                                <th>Hide_top_toolbar</th>
+                                <th>With_date_ranges</th>
+                                <th>Hide_side_toolbar</th>
+                                <th>Details</th>
+                                <th>Calendar</th>
+                                <th>Hotlist</th>
+                                <th>Enable_publishing</th>
+                                <th>User_Name</th>
+                                <th>Action</th>
                             </tr>
-                            {{-- @forelse ($pages as $page)
+                            @forelse ($tradingSettings as $tradingSetting)
                             <tr>
                                 <td> {{ $loop->iteration }}</td>
-                                <td>{{$page->title}}</td>
-                                <td>{{$page->slug}}</td>
+                                <td>{{$tradingSetting->trading}}</td>
+                                <td>{{$tradingSetting->trading_time}}</td>
+                                <td>{{$tradingSetting->buy_sell}}</td>
+                                <td>{{$tradingSetting->interval}}</td>
+                                <td>{{$tradingSetting->style}}</td>
+                                <td>{{$tradingSetting->theme}}</td>
+                                <td>{{$tradingSetting->timezone}}</td>
+                                <td>{{$tradingSetting->locale}}</td>
+                                <td>{{$tradingSetting->range}}</td>
+                                <td>{{$tradingSetting->width}}</td>
+                                <td>{{$tradingSetting->height}}</td>
+                                <td>{{$tradingSetting->hide_top_toolbar}}</td>
+                                <td>{{$tradingSetting->withdateranges}}</td>
+                                <td>{{$tradingSetting->hide_side_toolbar}}</td>
+                                <td>{{$tradingSetting->details}}</td>
+                                <td>{{$tradingSetting->calendar}}</td>
+                                <td>{{$tradingSetting->hotlist}}</td>
+                                <td>{{$tradingSetting->enable_publishing}}</td>
+                                <td>{{$tradingSetting->user->name}}</td>
                                 <td>
                                     <div class="">
                                         <a class="icon" href="#" data-bs-toggle="dropdown"><i
                                                 class="bi bi-three-dots"></i></a>
                                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                             <li><a class="dropdown-item text-center btn"
-                                                    href="{{ route('pages.edit', $page) }}">Edit</a>
+                                                href="{{ route('trading-settings.show', $tradingSetting) }}">Show</a>
+                                        </li>
+                                            <li><a class="dropdown-item text-center btn"
+                                                    href="{{ route('trading-settings.edit', $tradingSetting) }}">Edit</a>
                                             </li>
                                             <li>
-                                                <form action="{{ route('pages.destroy', $page) }}" method="post">
+                                                <form action="{{ route('trading-settings.destroy', $tradingSetting) }}" method="post">
                                                     @method('delete')
                                                     @csrf
                                                     <button class="dropdown-item text-center btn form-control" type="submit"
@@ -62,11 +99,11 @@
                                 
                             @empty
                             <tr>
-                                <td>
-                                    <div class="text-danger"><i>!! No, Recored Found !!</i></div>
+                                <td colspan="32">
+                                    <div class="text-danger  text-center"><i>!! No, Recored Found !!</i></div>
                                 </td>
                             </tr>
-                            @endforelse --}}
+                            @endforelse
                         </table>
                     </div>
                 </div><!-- /.card-body -->

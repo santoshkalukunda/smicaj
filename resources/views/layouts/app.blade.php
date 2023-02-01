@@ -70,7 +70,7 @@
                         </span>
                     </div>
                     <div>
-                        © {{date('Y')}}, {{ config('app.name', 'SMICAJ') }} All rights reserved.
+                        © {{ date('Y') }}, {{ config('app.name', 'SMICAJ') }} All rights reserved.
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -86,7 +86,8 @@
                 <div class="col-md-4">
                     <h2>Payment Partners</h2>
                     <div>
-                        <img src="{{ asset('img/esewa-new.png') }}" alt="esewa" srcset="" style="height: 40px;">
+                        <img src="{{ asset('img/esewa-new.png') }}" alt="esewa" srcset=""
+                            style="height: 40px;">
                         <img src="{{ asset('img/khalti-final.png') }}" alt="khalti" srcset=""
                             style="height: 40px;">
                         <img src="{{ asset('img/IMEPAY-new.png') }}" alt="IMEPAY" srcset=""
@@ -96,6 +97,11 @@
             </div>
         </div>
         </div>
+        {{-- trading view  --}}
+        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
+
+        @stack('scripts')
         @livewireScripts
 </body>
 

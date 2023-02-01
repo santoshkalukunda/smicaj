@@ -24,7 +24,7 @@ class TradingSettingForm extends Component
      */
     public function render()
     {
-       $indicators = Indicator::get();
-        return view('components.trading-setting-form', compact('indicators'));
+        $indicatores = Indicator::get();
+        return view('components.trading-setting-form', compact('indicatores'));
     }
 }

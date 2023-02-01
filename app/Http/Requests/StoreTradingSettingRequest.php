@@ -26,10 +26,10 @@ class StoreTradingSettingRequest extends FormRequest
         return [
             "trading" => "required",
             "trading_time" => "required",
-            "buy_sell" => "required|boolean",
+            "buy_sell" => "required",
             "interval" => "required",
             "studies" => "required",
-            "style" => "nullable|boolean",
+            "style" => "nullable",
             "theme" => "nullable",
             "timezone" => "nullable",
             "locale" => "nullable",
@@ -42,7 +42,9 @@ class StoreTradingSettingRequest extends FormRequest
             "details" => "nullable|boolean",
             "calendar" => "nullable|boolean",
             "hotlist" => "nullable|boolean",
-            "enable_publishing" => "nullable|boolean"
+            "enable_publishing" => "nullable|boolean",
+            "allow_symbol_change" => "nullable|boolean",
+            "save_image" => "nullable|boolean",
         ];
     }
 }

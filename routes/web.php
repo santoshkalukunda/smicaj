@@ -39,7 +39,13 @@ Route::group(['middleware' => ['role:admin|super-admin']], function () {
     Route::get('trading-settings', [TradingSettingController::class, 'index'])->name("trading-settings.index");
     Route::post('trading-settings', [TradingSettingController::class, 'store'])->name("trading-settings.store");
     Route::get('trading-settings/create', [TradingSettingController::class, 'create'])->name("trading-settings.create");
+    Route::get('trading-settings/edit/{tradingSetting}', [TradingSettingController::class, 'edit'])->name("trading-settings.edit");
+    Route::put('trading-settings/{tradingSetting}', [TradingSettingController::class, 'update'])->name("trading-settings.update");
+    Route::delete('trading-settings/{tradingSetting}', [TradingSettingController::class, 'destroy'])->name("trading-settings.destroy");
 });
+
+Route::get('trading-settings/{tradingSetting}', [TradingSettingController::class, 'show'])->name("trading-settings.show");
+
 Route::get('pages/{page}', [PageController::class,'show'])->name('pages.show');
 
 Route::get('buy', function(){
