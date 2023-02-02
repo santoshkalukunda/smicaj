@@ -7,6 +7,7 @@ use App\Http\Requests\StoreTradingSettingRequest;
 use App\Http\Requests\UpdateTradingSettingRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class TradingSettingController extends Controller
 {
@@ -42,6 +43,7 @@ class TradingSettingController extends Controller
         try {
             $user = User::findOrFail(Auth::user()->id);
             $tradingSetting = $user->tradingSetting()->create([
+                "slug" => Str::uuid(),
                 "trading" => $request->trading,
                 "trading_time" => $request->trading_time,
                 "buy_sell" => $request->buy_sell,

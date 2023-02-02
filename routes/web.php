@@ -23,19 +23,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['middleware' => ['role:admin|super-admin|user']], function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-});
+
 
 Route::group(['middleware' => ['role:admin|super-admin']], function () {
-    Route::get('pages', [PageController::class,'index'])->name('pages.index');
-    Route::get('pages/create', [PageController::class,'create'])->name('pages.create');
-    Route::get('pages/{page}/edit', [PageController::class,'edit'])->name('pages.edit');
-    Route::post('pages/store', [PageController::class,'store'])->name('pages.store');
-    Route::put('pages/{page}', [PageController::class,'update'])->name('pages.update');
-    Route::delete('pages/{page}', [PageController::class,'destroy'])->name('pages.destroy');
-   
-   
+    Route::get('pages', [PageController::class, 'index'])->name('pages.index');
+    Route::get('pages/create', [PageController::class, 'create'])->name('pages.create');
+    Route::get('pages/{page}/edit', [PageController::class, 'edit'])->name('pages.edit');
+    Route::post('pages/store', [PageController::class, 'store'])->name('pages.store');
+    Route::put('pages/{page}', [PageController::class, 'update'])->name('pages.update');
+    Route::delete('pages/{page}', [PageController::class, 'destroy'])->name('pages.destroy');
+
+
     Route::get('trading-settings', [TradingSettingController::class, 'index'])->name("trading-settings.index");
     Route::post('trading-settings', [TradingSettingController::class, 'store'])->name("trading-settings.store");
     Route::get('trading-settings/create', [TradingSettingController::class, 'create'])->name("trading-settings.create");
@@ -44,12 +42,16 @@ Route::group(['middleware' => ['role:admin|super-admin']], function () {
     Route::delete('trading-settings/{tradingSetting}', [TradingSettingController::class, 'destroy'])->name("trading-settings.destroy");
 });
 
-Route::get('trading-settings/{tradingSetting}', [TradingSettingController::class, 'show'])->name("trading-settings.show");
 
-Route::get('pages/{page}', [PageController::class,'show'])->name('pages.show');
+Route::group(['middleware' => ['role:admin|super-admin|user']], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('trading-settings/{tradingSetting}/show', [TradingSettingController::class, 'show'])->name("trading-settings.show");
+});
 
-Route::get('buy', function(){
-  return view('backend.intradrading.long-term.buy');
+Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
+
+Route::get('buy', function () {
+    return view('backend.intradrading.long-term.buy');
 });
 
 

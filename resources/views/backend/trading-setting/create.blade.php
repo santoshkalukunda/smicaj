@@ -1,9 +1,14 @@
 @extends('backend.app')
 @section('content')
     <!-- Content Header (Page header) -->
-    <div class="row">
+    <div class="row py-2">
         <div class="col-sm-6">
-            <h4 class="my-2"> {{ $title = 'Trading Setting Create' }} </h3>
+            <h4 class="my-2"> {{ $title = $tradingSetting->id ? 'Trading Setting Edit' : 'Trading Setting Create' }} </h3>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{{route('trading-settings.index')}}"> <i class="bi bi-arrow-clockwise"></i> Go Back</a></li>
+            </ol>
         </div><!-- /.col -->
     </div><!-- /.row -->
 

@@ -9,9 +9,5 @@ class Indicator extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-
-    // public function indicatorSetting(){
-    //     return $this->morphToMany(indicatorSetting::class, 'trading_setting_id');
-    // }
     
 }

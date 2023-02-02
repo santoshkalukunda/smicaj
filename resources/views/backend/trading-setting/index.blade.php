@@ -7,9 +7,9 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('trading-settings.create')}}">Add New Setting</a></li>
+              <li class="breadcrumb-item"><a href="{{route('trading-settings.create')}}"><i class="bi bi-plus-lg"></i> Create New Setting</a></li>
             </ol>
-          </div><!-- /.col -->
+        </div><!-- /.col -->
     </div><!-- /.row -->
     <div class="row">
         <!-- Left col -->

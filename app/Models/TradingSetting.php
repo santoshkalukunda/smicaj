@@ -4,12 +4,31 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
+use Illuminate\Support\Str;
 
 class TradingSetting extends Model
 {
     use HasFactory;
+    // use HasSlug;
+
     protected $guarded = ['id'];
     
+    // public function getSlugOptions() : SlugOptions
+    // {
+    //     return SlugOptions::create()
+    //         ->generateSlugsFrom(['trading','trading_time','buy_sell'])
+    //         ->saveSlugsTo('slug')
+    //         ->doNotGenerateSlugsOnUpdate();
+    // }
+    
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -17,7 +36,9 @@ class TradingSetting extends Model
     public function indicatorSettings(){
         return $this->hasMany(indicatorSetting::class, 'trading_setting_id');
     }
-    // public function getBuy_sellAttribute()
+
+    
+    // public function getBuySellAttribute()
     // {
     //     if ($this->attributes['buy_sell'] == true) {
     //         return 'true';
@@ -25,7 +46,7 @@ class TradingSetting extends Model
     //         return 'false';
     //     }
     // }
-    // public function getEnable_publishingAttribute()
+    // public function getEnablePublishingAttribute()
     // {
     //     if ($this->attributes['enable_publishing'] == true) {
     //         return 'true';
