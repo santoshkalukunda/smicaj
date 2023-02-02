@@ -6,6 +6,7 @@ use App\Models\TradingSetting;
 use App\Http\Requests\StoreTradingSettingRequest;
 use App\Http\Requests\UpdateTradingSettingRequest;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -16,10 +17,37 @@ class TradingSettingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tradingSettings = TradingSetting::get();
-        return view('backend.trading-setting.index',compact('tradingSettings'));
+        $tradingSettings = new TradingSetting;
+
+        if ($request->has('id')) {
+            if ($request->id != null) {
+                $tradingSettings = $tradingSettings->where('id', ["$request->id"]);
+            }
+        }
+        if ($request->has('trading')) {
+            if ($request->trading != null) {
+                $tradingSettings = $tradingSettings->where('trading', ["$request->trading"]);
+            }
+        }
+        if ($request->has('trading_time')) {
+            if ($request->trading_time != null) {
+                $tradingSettings = $tradingSettings->where('trading_time', ["$request->trading_time"]);
+            }
+        }
+        if ($request->has('buy_sell')) {
+            if ($request->buy_sell != null) {
+                $tradingSettings = $tradingSettings->where('buy_sell', ["$request->buy_sell"]);
+            }
+        }
+        if ($request->has('user_id')) {
+            if ($request->user_id != null) {
+                $tradingSettings = $tradingSettings->where('user_id', ["$request->user_id"]);
+            }
+        }
+        $tradingSettings = $tradingSettings->latest()->get();
+        return view('backend.trading-setting.index', compact('tradingSettings'));
     }
 
     /**
@@ -29,7 +57,7 @@ class TradingSettingController extends Controller
      */
     public function create(TradingSetting $tradingSetting)
     {
-        return view('backend.trading-setting.create',compact('tradingSetting'));
+        return view('backend.trading-setting.create', compact('tradingSetting'));
     }
 
     /**
@@ -63,14 +91,14 @@ class TradingSettingController extends Controller
                 "hotlist" => $request->hotlist ?? false,
                 "enable_publishing" => $request->enable_publishing ?? false,
                 "allow_symbol_change" => $request->allow_symbol_change ?? false,
-                "save_image" => $request->save_image?? false,
+                "save_image" => $request->save_image ?? false,
             ]);
             foreach ($request->studies as $study) {
                 $tradingSetting->indicatorSettings()->create([
                     'value' => $study,
                 ]);
             }
-            return redirect()->route('trading-settings.edit',$tradingSetting)->with('success', 'Your Setting is Created');
+            return redirect()->route('trading-settings.edit', $tradingSetting)->with('success', 'Your Setting is Created');
         } catch (\Throwable $th) {
             return $th;
         }
@@ -84,7 +112,7 @@ class TradingSettingController extends Controller
      */
     public function show(TradingSetting $tradingSetting)
     {
-        return view('backend.trading-setting.show',compact('tradingSetting'));
+        return view('backend.trading-setting.show', compact('tradingSetting'));
     }
 
     /**
@@ -95,7 +123,7 @@ class TradingSettingController extends Controller
      */
     public function edit(TradingSetting $tradingSetting)
     {
-        return view('backend.trading-setting.create',compact('tradingSetting'));
+        return view('backend.trading-setting.create', compact('tradingSetting'));
     }
 
     /**
@@ -107,7 +135,7 @@ class TradingSettingController extends Controller
      */
     public function update(UpdateTradingSettingRequest $request, TradingSetting $tradingSetting)
     {
-       
+
         try {
             //code...
             $tradingSetting->update([
@@ -130,7 +158,7 @@ class TradingSettingController extends Controller
                 "hotlist" => $request->hotlist ?? false,
                 "enable_publishing" => $request->enable_publishing ?? false,
                 "allow_symbol_change" => $request->allow_symbol_change ?? false,
-                "save_image" => $request->save_image?? false,
+                "save_image" => $request->save_image ?? false,
             ]);
             $tradingSetting->indicatorSettings()->delete();
             foreach ($request->studies as $study) {
@@ -153,6 +181,6 @@ class TradingSettingController extends Controller
     public function destroy(TradingSetting $tradingSetting)
     {
         $tradingSetting->delete();
-        return redirect()->back()->with('success',"Trading Seleting Deleted");
+        return redirect()->back()->with('success', "Trading Seleting Deleted");
     }
 }

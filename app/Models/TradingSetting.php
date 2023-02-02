@@ -14,7 +14,7 @@ class TradingSetting extends Model
     // use HasSlug;
 
     protected $guarded = ['id'];
-    
+
     // public function getSlugOptions() : SlugOptions
     // {
     //     return SlugOptions::create()
@@ -22,22 +22,23 @@ class TradingSetting extends Model
     //         ->saveSlugsTo('slug')
     //         ->doNotGenerateSlugsOnUpdate();
     // }
-    
+
     public function getRouteKeyName()
     {
         return 'slug';
     }
 
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function indicatorSettings(){
+    public function indicatorSettings()
+    {
         return $this->hasMany(indicatorSetting::class, 'trading_setting_id');
     }
 
-    
     // public function getBuySellAttribute()
     // {
     //     if ($this->attributes['buy_sell'] == true) {
