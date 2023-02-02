@@ -70,7 +70,6 @@
                                 <label for="exampleFormControlInput1" class="form-label">Buy/Sell</label>
                                 <select class="form-select @error('buy_sell')  is-invalid @enderror" name="buy_sell"
                                     aria-label="Default select example" required>
-                                    <option value="">Select Buy/Sell</option>
                                     <option value="1" {{ $tradingSetting->buy_sell == true ? 'selected' : '' }}>Buy
                                     </option>
                                     <option value="0" {{ $tradingSetting->buy_sell == false ? 'selected' : '' }}>Sell
@@ -89,25 +88,25 @@
                                 <label for="exampleFormControlInput1" class="form-label">Default Interval</label>
                                 <select class="form-select @error('interval')  is-invalid @enderror" name="interval"
                                     aria-label="Default select example" required>
-                                    <option value="1m" {{ $tradingSetting->interval == '1m' ? 'selected' : '' }}>1
+                                    <option value="1" {{ $tradingSetting->interval == '1' ? 'selected' : '' }}>1
                                         minute</option>
-                                    <option value="3m" {{ $tradingSetting->interval == '3m' ? 'selected' : '' }}>3
+                                    <option value="3" {{ $tradingSetting->interval == '3' ? 'selected' : '' }}>3
                                         minutes</option>
-                                    <option value="5m" {{ $tradingSetting->interval == '5m' ? 'selected' : '' }}>5
+                                    <option value="5" {{ $tradingSetting->interval == '5' ? 'selected' : '' }}>5
                                         minutes</option>
-                                    <option value="15m" {{ $tradingSetting->interval == '15m' ? 'selected' : '' }}>15
+                                    <option value="15" {{ $tradingSetting->interval == '15' ? 'selected' : '' }}>15
                                         minutes</option>
-                                    <option value="30m" {{ $tradingSetting->interval == '30m' ? 'selected' : '' }}>30
+                                    <option value="30" {{ $tradingSetting->interval == '30' ? 'selected' : '' }}>30
                                         minutes</option>
-                                    <option value="45m" {{ $tradingSetting->interval == '45m' ? 'selected' : '' }}>45
+                                    <option value="45" {{ $tradingSetting->interval == '45' ? 'selected' : '' }}>45
                                         minutes</option>
-                                    <option value="1h" {{ $tradingSetting->interval == '1h' ? 'selected' : '' }}>1 hour
+                                    <option value="60" {{ $tradingSetting->interval == '60' ? 'selected' : '' }}>1 hour
                                     </option>
-                                    <option value="2h" {{ $tradingSetting->interval == '2h' ? 'selected' : '' }}>2 hour
+                                    <option value="120" {{ $tradingSetting->interval == '120' ? 'selected' : '' }}>2 hour
                                     </option>
-                                    <option value="3h" {{ $tradingSetting->interval == '3h' ? 'selected' : '' }}>3 hour
+                                    <option value="180" {{ $tradingSetting->interval == '180' ? 'selected' : '' }}>3 hour
                                     </option>
-                                    <option value="4h" {{ $tradingSetting->interval == '4h' ? 'selected' : '' }}>4 hour
+                                    <option value="240" {{ $tradingSetting->interval == '240' ? 'selected' : '' }}>4 hour
                                     </option>
                                     <option value="D" {{ $tradingSetting->interval == 'D' ? 'selected' : '' }}>1 Day
                                     </option>
@@ -119,7 +118,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="col-md-3">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Indicators</label>
@@ -127,9 +126,7 @@
                                     class="form-select  @error('studies')  is-invalid @enderror"
                                     aria-placeholder="Add indicators" multiple required>
                                     @if ($tradingSetting->id)
-                                   
                                         @foreach ($tradingSetting->indicatorSettings as $indicatorSetting)
-                                       
                                             <option value="ACCD@tv-basicstudies"
                                                 {{ $indicatorSetting->value == 'ACCD@tv-basicstudies' ? 'selected' : '' }}
                                                 attr-short-desc="Accum/Dist">
@@ -775,7 +772,7 @@
                             <div class="mb-3 ">
                                 <input name="hide_top_toolbar" class="form-check-input" type="checkbox" value="1"
                                     id="hide_top_toolbar"
-                                    {{ $tradingSetting->hide_top_toolbar == true ? 'checked' : '' }}>
+                                    {{ $tradingSetting->hide_top_toolbar == true ? 'checked' : '' }} checked>
                                 <label class="form-check-label" for="hide_top_toolbar">
                                     Show top toolbar
                                 </label>
@@ -784,7 +781,7 @@
                         <div class="col-md-3 pl-4">
                             <div class="mb-3">
                                 <input name="withdateranges" class="form-check-input" type="checkbox" value="1"
-                                    id="withdateranges" {{ $tradingSetting->withdateranges == true ? 'checked' : '' }}>
+                                    id="withdateranges" {{ $tradingSetting->withdateranges == true ? 'checked' : '' }} checked>
                                 <label class="form-check-label" for="withdateranges">
                                     Show bottom toolbar
                                 </label>
@@ -794,7 +791,7 @@
                             <div class="mb-3">
                                 <input name="hide_side_toolbar" class="form-check-input" type="checkbox" value="1"
                                     id="hide_side_toolbar"
-                                    {{ $tradingSetting->hide_side_toolbar == true ? 'checked' : '' }}>
+                                    {{ $tradingSetting->hide_side_toolbar == true ? 'checked' : '' }} checked>
                                 <label class="form-check-label" for="hide_side_toolbar">
                                     Show drawing toolbar
                                 </label>
@@ -805,7 +802,7 @@
                             <div class="mb-3">
                                 <input name="allow_symbol_change" class="form-check-input" type="checkbox"
                                     value="1" id="allow_symbol_change"
-                                    {{ $tradingSetting->allow_symbol_change == true ? 'checked' : '' }}>
+                                    {{ $tradingSetting->allow_symbol_change == true ? 'checked' : '' }} checked>
                                 <label class="form-check-label" for="allow_symbol_change">
                                     Show allow_symbol_change
                                 </label>
@@ -868,7 +865,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-center py-3">
         @if ($tradingSetting->id)
             <div class="col-md-12">
                 <!-- TradingView Widget BEGIN -->
@@ -922,35 +919,8 @@
                 }
             });
         </script>
-        @if ($tradingSetting->id)
-            <script type="text/javascript">
-                new TradingView.widget({
-                    "width": {{ $tradingSetting->width ?? '900' }},
-                    "height": {{ $tradingSetting->height ?? '900' }},
-                    "symbol": "NASDAQ:AAPL",
-                    "timezone": "{{ $tradingSetting->timezone ?? 'Asia/Kathmandu' }}",
-                    "theme": "{{ $tradingSetting->theme ?? 'light' }}",
-                    "style": "{{ $tradingSetting->style ?? '1' }}",
-                    "locale": "{{ $tradingSetting->locale ?? 'en' }}",
-                    "toolbar_bg": "#f1f3f6",
-                    "studies": [
-                        @foreach ($tradingSetting->indicatorSettings as $indicatorSetting)
-                         "{{$indicatorSetting->value}}",
-                        @endforeach
-                    ],
-                    "enable_publishing": {{ $tradingSetting->enable_publishing == true ? 'true' : 'false' }},
-                    "withdateranges": {{ $tradingSetting->withdateranges == true ? 'true' : 'false' }},
-                    "range": "{{ $tradingSetting->range ?? 'YTD' }}",
-                    "hide_top_toolbar": {{ $tradingSetting->hide_top_toolbar == true ? 'true' : 'false' }},
-                    "hide_side_toolbar": {{ $tradingSetting->hide_side_toolbar == true ? 'true' : 'false' }},
-                    "allow_symbol_change": {{ $tradingSetting->allow_symbol_change == true ? 'true' : 'false' }},
-                    "save_image": {{ $tradingSetting->save_image == true ? 'true' : 'false' }},
-                    "details": {{ $tradingSetting->details == true ? 'true' : 'false' }},
-                    "hotlist": {{ $tradingSetting->hotlist == true ? 'true' : 'false' }},
-                    "calendar": {{ $tradingSetting->calendar == true ? 'true' : 'false' }},
-                    "container_id": "tradingview_{{ $tradingSetting->id ?? '00' }}"
-                });
-            </script>
-        @endif
     @endpush
+    @if ($tradingSetting->id)
+        @include('backend.trading-setting.scripts')
+    @endif
 @endsection
