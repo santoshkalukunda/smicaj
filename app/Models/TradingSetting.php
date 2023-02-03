@@ -36,7 +36,7 @@ class TradingSetting extends Model
 
     public function indicatorSettings()
     {
-        return $this->hasMany(indicatorSetting::class, 'trading_setting_id');
+        return $this->hasMany(IndicatorSetting::class, 'trading_setting_id');
     }
 
     // public function getBuySellAttribute()
