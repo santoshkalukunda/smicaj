@@ -7,7 +7,8 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('trading-settings.index')}}"> <i class="bi bi-arrow-clockwise"></i> Go Back</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('trading-settings.index') }}"> <i
+                            class="bi bi-arrow-clockwise"></i> Go Back</a></li>
             </ol>
         </div><!-- /.col -->
     </div><!-- /.row -->
@@ -24,6 +25,18 @@
 
                     @csrf
                     <div class="row">
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Setting Name</label>
+                                <input type="text" class="form-control @error('name')  is-invalid @enderror"
+                                    name="name" aria-label="Default select example" required placeholder="Setting Name">
+                                @error('name')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-md-3">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Trading</label>
@@ -107,11 +120,14 @@
                                         minutes</option>
                                     <option value="60" {{ $tradingSetting->interval == '60' ? 'selected' : '' }}>1 hour
                                     </option>
-                                    <option value="120" {{ $tradingSetting->interval == '120' ? 'selected' : '' }}>2 hour
+                                    <option value="120" {{ $tradingSetting->interval == '120' ? 'selected' : '' }}>2
+                                        hour
                                     </option>
-                                    <option value="180" {{ $tradingSetting->interval == '180' ? 'selected' : '' }}>3 hour
+                                    <option value="180" {{ $tradingSetting->interval == '180' ? 'selected' : '' }}>3
+                                        hour
                                     </option>
-                                    <option value="240" {{ $tradingSetting->interval == '240' ? 'selected' : '' }}>4 hour
+                                    <option value="240" {{ $tradingSetting->interval == '240' ? 'selected' : '' }}>4
+                                        hour
                                     </option>
                                     <option value="D" {{ $tradingSetting->interval == 'D' ? 'selected' : '' }}>1 Day
                                     </option>
@@ -757,7 +773,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-1">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Width</label>
                                 <input type="number" class="form-control" name="width"
@@ -765,7 +781,7 @@
                                     value="{{ $tradingSetting->width ? $tradingSetting->width : '1200' }}">
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-1">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Height</label>
                                 <input type="number" class="form-control" name="height"
@@ -786,7 +802,8 @@
                         <div class="col-md-3 pl-4">
                             <div class="mb-3">
                                 <input name="withdateranges" class="form-check-input" type="checkbox" value="1"
-                                    id="withdateranges" {{ $tradingSetting->withdateranges == true ? 'checked' : '' }} checked>
+                                    id="withdateranges" {{ $tradingSetting->withdateranges == true ? 'checked' : '' }}
+                                    checked>
                                 <label class="form-check-label" for="withdateranges">
                                     Show bottom toolbar
                                 </label>
@@ -863,8 +880,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Apply</button>
+                    <div class="col-md-2">
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary form-control">Apply</button>
+                        </div>
                     </div>
                 </form>
             </div>

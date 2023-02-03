@@ -24,6 +24,7 @@ class StoreTradingSettingRequest extends FormRequest
     public function rules()
     {
         return [
+            "name" => "required",
             "trading" => "required",
             "trading_time" => "required",
             "buy_sell" => "required",

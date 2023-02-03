@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateTradingSettingRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 class TradingSettingController extends Controller
@@ -57,7 +58,15 @@ class TradingSettingController extends Controller
      */
     public function create(TradingSetting $tradingSetting)
     {
-        return view('backend.trading-setting.create', compact('tradingSetting'));
+      $response = Http::withHeaders([
+            'X-RapidAPI-Key' => '79ed8c18c6msh2579512b15be1c2p19c4d7jsnb3325ddf0951',
+            'X-RapidAPI-Host' => 'trading-view.p.rapidapi.com'
+        ])->get('https://trading-view.p.rapidapi.com/auto-complete', [
+            'text'=> 'tesla', 
+            'lang'=> 'en'
+        ]);
+        $response = $response->json();
+        return view('backend.trading-setting.create', compact('tradingSetting','response'));
     }
 
     /**
@@ -72,6 +81,7 @@ class TradingSettingController extends Controller
             $user = User::findOrFail(Auth::user()->id);
             $tradingSetting = $user->tradingSetting()->create([
                 "slug" => Str::uuid(),
+                "name" => $request->name,
                 "trading" => $request->trading,
                 "trading_time" => $request->trading_time,
                 "buy_sell" => $request->buy_sell,
@@ -139,6 +149,7 @@ class TradingSettingController extends Controller
         try {
             //code...
             $tradingSetting->update([
+                "name" => $request->name,
                 "trading" => $request->trading,
                 "trading_time" => $request->trading_time,
                 "buy_sell" => $request->buy_sell,

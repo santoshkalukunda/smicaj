@@ -13,7 +13,7 @@
         </div><!-- /.col -->
     </div><!-- /.row -->
     <div class="my-2 p-2 bg-white ">
-       <x-trading-setting-filter />
+        <x-trading-setting-filter />
     </div>
     <div class="row">
         <!-- Left col -->
@@ -33,6 +33,7 @@
                             <tr>
                                 {{-- <th>SN</th> --}}
                                 <th>ID</th>
+                                <th>Name</th>
                                 <th>Trading</th>
                                 <th>Trading Time</th>
                                 <th>Buy/Sell</th>
@@ -60,6 +61,7 @@
                                     <td><a
                                             href="{{ route('trading-settings.edit', $tradingSetting) }}">{{ $tradingSetting->id }}</a>
                                     </td>
+                                    <td>{{ $tradingSetting->name }}</td>
                                     <td>{{ $tradingSetting->trading }}</td>
                                     <td>{{ $tradingSetting->trading_time }}</td>
                                     <td>

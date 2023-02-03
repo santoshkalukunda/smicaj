@@ -16,6 +16,7 @@ class CreateTradingSettingsTable extends Migration
         Schema::create('trading_settings', function (Blueprint $table) {
             $table->id();
             $table->string('slug');
+            $table->string('name')->nullable();
             $table->string('trading')->nullable();
             $table->string('trading_time')->nullable();
             $table->boolean('buy_sell')->nullable();
