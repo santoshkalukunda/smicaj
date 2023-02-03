@@ -24,7 +24,7 @@
 
     @endphp
     <div class="row py-2">
-        <h3 class=" text-center"> {{ $title = $trading ." In ". $trading_time ." For " . $buy_sell }} </h3>
+        <h3 class=" text-center"> {{ $title = $trading ." In ". $trading_time ." For " . $buy_sell ." (".$tradingSetting->name .")" }} </h3>
     </div><!-- /.row -->
     <div class="row">
         <!-- Left col -->
