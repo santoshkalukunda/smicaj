@@ -2,13 +2,13 @@
     <form action="{{route('trading-settings.index')}}" method="get">
         <div class="row">
             <div class="col-md-1">
-                <div>
+                <div class="mb-3 mb-md-0">
                     {{-- <label for="id" class="form-label">ID</label> --}}
                     <input type="number" min="1" class="form-control" name="id" placeholder="ID">
                 </div>
             </div>
             <div class="col-md-3">
-                <div>
+                <div class="mb-3 mb-md-0">
                     {{-- <label for="exampleFormControlInput1" class="form-label">Trading</label> --}}
                     <select class="form-select @error('trading')  is-invalid @enderror" name="trading"
                         aria-label="Default select example">
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div>
+                <div class="mb-3 mb-md-0">
                     {{-- <label for="exampleFormControlInput1" class="form-label">Trading Time</label> --}}
                     <select class="form-select @error('trading_time')  is-invalid @enderror" name="trading_time"
                         aria-label="Default select example">
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <div>
+                <div class="mb-3 mb-md-0">
                     {{-- <label for="exampleFormControlInput1" class="form-label">Buy/Sell</label> --}}
                     <select class="form-select @error('buy_sell')  is-invalid @enderror" name="buy_sell"
                         aria-label="Default select example">
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <div>
+                <div class="mb-3 mb-md-0">
                     {{-- <label for="exampleFormControlInput1" class="form-label">User</label> --}}
                     <select class="form-select @error('user_id')  is-invalid @enderror" name="user_id"
                         aria-label="Default select example">
@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div class="col-md-1">
-                <div>
+                <div class="mb-3 mb-md-0">
                     <button type="submit" class="btn btn-primary form-control">Filter</button>
                 </div>
             </div>
