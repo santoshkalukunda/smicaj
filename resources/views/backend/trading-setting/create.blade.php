@@ -29,7 +29,7 @@
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Setting Name</label>
                                 <input type="text" class="form-control @error('name')  is-invalid @enderror"
-                                    name="name" aria-label="Default select example" required placeholder="Setting Name">
+                                    name="name" aria-label="Default select example" value="{{old('name',$tradingSetting->name)}}" required placeholder="Setting Name">
                                 @error('name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
