@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LayoutSettingController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TradingSettingController;
 use Illuminate\Support\Facades\Auth;
@@ -47,6 +48,12 @@ Route::group(['middleware' => ['role:admin|super-admin|user']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('trading-settings/{tradingSetting}/show', [TradingSettingController::class, 'show'])->name("trading-settings.show");
 });
+
+Route::get('layout-settings',[LayoutSettingController::class, 'index'])->name("layout-settings.index");
+Route::get('layout-settings/{tradingLayout}/create',[LayoutSettingController::class, 'create'])->name("layout-settings.create");
+Route::get('layout-settings/{tradingLayout}/edit/{layoutSetting}',[LayoutSettingController::class, 'edit'])->name("layout-settings.edit");
+Route::get('layout-settings/{layoutSetting}',[LayoutSettingController::class, 'show'])->name("layout-settings.show");
+Route::post('layout-settings/{tradingLayout}/store',[LayoutSettingController::class, 'store'])->name("layout-settings.store");
 
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 

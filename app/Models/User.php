@@ -40,4 +40,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(TradingSetting::class);
     }
+
+    public function LayoutSetting()
+    {
+        return $this->hasMany(LayoutSetting::class);
+    }
 }
