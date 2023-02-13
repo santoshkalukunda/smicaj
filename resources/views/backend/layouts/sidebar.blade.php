@@ -155,6 +155,12 @@
                     </ul>
                 </li> --}}
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('layout-settings.index') }}">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        {{ __('Layout Setting') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('trading-settings.index') }}">
                         <i class="bi bi-file-earmark-text-fill"></i>
                         {{ __('Trading Setting') }}

@@ -53,6 +53,7 @@ Route::get('layout-settings',[LayoutSettingController::class, 'index'])->name("l
 Route::get('layout-settings/{tradingLayout}/create',[LayoutSettingController::class, 'create'])->name("layout-settings.create");
 Route::get('layout-settings/{tradingLayout}/edit/{layoutSetting}',[LayoutSettingController::class, 'edit'])->name("layout-settings.edit");
 Route::get('layout-settings/{layoutSetting}',[LayoutSettingController::class, 'show'])->name("layout-settings.show");
+Route::put('layout-settings/{layoutSetting}',[LayoutSettingController::class, 'update'])->name("layout-settings.update");
 Route::post('layout-settings/{tradingLayout}/store',[LayoutSettingController::class, 'store'])->name("layout-settings.store");
 
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');

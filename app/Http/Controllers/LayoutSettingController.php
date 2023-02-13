@@ -32,10 +32,16 @@ class LayoutSettingController extends Controller
      */
     public function create(TradingLayout $tradingLayout, LayoutSetting $layoutSetting)
     {
-        $layoutViews = $tradingLayout->layoutViews()->get();
-        $tradingSettings = TradingSetting::get();
-        // return TradingLayout::where('layout',$request->layout)->get();
-        return view('backend.layout-setting.create',compact('tradingLayout','layoutViews','tradingSettings','layoutSetting'));
+        $layoutSetting = $tradingLayout->layoutSettings()->first();
+        // return $layoutSetting;
+        if ($layoutSetting) {
+            return redirect()->route('layout-settings.edit',[$tradingLayout, $layoutSetting]);
+        } else {
+            $layoutViews = $tradingLayout->layoutViews()->get();
+            $tradingSettings = TradingSetting::get();
+            // return TradingLayout::where('layout',$request->layout)->get();
+            return view('backend.layout-setting.create', compact('tradingLayout', 'layoutViews', 'tradingSettings', 'layoutSetting'));
+        }
     }
 
     /**
@@ -46,15 +52,16 @@ class LayoutSettingController extends Controller
      */
     public function store(StoreLayoutSettingRequest $request, TradingLayout $tradingLayout)
     {
-       
-       $layoutSetting = $tradingLayout->layoutSettings()->create([
-        'View_1' => $request->View_1,
-        'View_2' => $request->View_2,
-        'View_3' => $request->View_3,
-        'View_4' => $request->View_4,
-        'user_id'  => Auth::user()->id,
-       ]);
-        return redirect()->route('layout-settings.edit',[$tradingLayout,$layoutSetting])->with('success','Layout Created');
+        $layoutSetting = $tradingLayout->layoutSettings()->create([
+            'View_1' => $request->View_1,
+            'View_2' => $request->View_2,
+            'View_3' => $request->View_3,
+            'View_4' => $request->View_4,
+            'user_id' => Auth::user()->id,
+        ]);
+        return redirect()
+            ->route('layout-settings.edit', [$tradingLayout, $layoutSetting])
+            ->with('success', 'Layout Created');
     }
 
     /**
@@ -77,12 +84,10 @@ class LayoutSettingController extends Controller
      */
     public function edit(TradingLayout $tradingLayout, LayoutSetting $layoutSetting)
     {
-        // return $layoutSetting;
         $layoutViews = $tradingLayout->layoutViews()->get();
         $tradingSettings = TradingSetting::get();
         // return TradingLayout::where('layout',$request->layout)->get();
-        return view('backend.layout-setting.create',compact('tradingLayout','layoutViews','tradingSettings','layoutSetting'));
-   
+        return view('backend.layout-setting.create', compact('tradingLayout', 'layoutViews', 'tradingSettings', 'layoutSetting'));
     }
 
     /**
@@ -94,7 +99,16 @@ class LayoutSettingController extends Controller
      */
     public function update(UpdateLayoutSettingRequest $request, LayoutSetting $layoutSetting)
     {
-        //
+        $layoutSetting = $layoutSetting->update([
+            'View_1' => $request->View_1,
+            'View_2' => $request->View_2,
+            'View_3' => $request->View_3,
+            'View_4' => $request->View_4,
+            'user_id' => Auth::user()->id,
+        ]);
+        return redirect()
+            ->back()
+            ->with('success', 'Layout Updated');
     }
 
     /**
