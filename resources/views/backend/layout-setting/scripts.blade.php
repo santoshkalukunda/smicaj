@@ -25,7 +25,7 @@
             "details": {{ $tradingSetting->details == true ? 'true' : 'false' }},
             "hotlist": {{ $tradingSetting->hotlist == true ? 'true' : 'false' }},
             "calendar": {{ $tradingSetting->calendar == true ? 'true' : 'false' }},
-            "container_id": "tradingview_{{ $tradingSetting->id ?? '00' }}"
+            "container_id": "tradingview_{{ $i ?? '00' }}"
 
         });
     </script>

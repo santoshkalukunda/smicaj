@@ -52,7 +52,7 @@ Route::group(['middleware' => ['role:admin|super-admin|user']], function () {
 Route::get('layout-settings',[LayoutSettingController::class, 'index'])->name("layout-settings.index");
 Route::get('layout-settings/{tradingLayout}/create',[LayoutSettingController::class, 'create'])->name("layout-settings.create");
 Route::get('layout-settings/{tradingLayout}/edit/{layoutSetting}',[LayoutSettingController::class, 'edit'])->name("layout-settings.edit");
-Route::get('layout-settings/{layoutSetting}',[LayoutSettingController::class, 'show'])->name("layout-settings.show");
+Route::get('layout-settings/{tradingLayout}/show/{layoutSetting}',[LayoutSettingController::class, 'show'])->name("layout-settings.show");
 Route::put('layout-settings/{layoutSetting}',[LayoutSettingController::class, 'update'])->name("layout-settings.update");
 Route::post('layout-settings/{tradingLayout}/store',[LayoutSettingController::class, 'store'])->name("layout-settings.store");
 

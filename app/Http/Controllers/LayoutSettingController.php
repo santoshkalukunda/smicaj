@@ -70,10 +70,12 @@ class LayoutSettingController extends Controller
      * @param  \App\Models\LayoutSetting  $layoutSetting
      * @return \Illuminate\Http\Response
      */
-    public function show(LayoutSetting $layoutSetting)
+    public function show(TradingLayout $tradingLayout, LayoutSetting $layoutSetting)
     {
-        // return redirect('')
-        return $layoutSetting;
+        $layoutViews = $tradingLayout->layoutViews()->get();
+        $tradingSettings = TradingSetting::get();
+        return view('backend.layout-setting.show', compact('tradingLayout', 'layoutViews', 'tradingSettings', 'layoutSetting'));
+    
     }
 
     /**

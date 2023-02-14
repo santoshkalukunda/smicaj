@@ -1,12 +1,12 @@
-@extends('backend.app')
+@extends('layouts.app')
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="row py-2">
-        <div class="col-sm-6">
+        <div class="col-sm-6 text-center">
             <h4 class="my-2"> {{ $title = 'Layout Setting' }} </h3>
         </div><!-- /.col -->
         <div class="col-sm-6">
-            <div class=" float-sm-right">
+            <div class="text-right">
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
