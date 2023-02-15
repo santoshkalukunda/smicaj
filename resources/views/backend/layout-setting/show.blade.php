@@ -138,7 +138,7 @@
             @if ($layoutSetting->trading_layout_id == 2)
                 @foreach ($tradingSettings as $tradingSetting)
                     @if ($layoutSetting->View_1 == $tradingSetting->id)
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <!-- TradingView Widget BEGIN -->
                             <div class="tradingview-widget-container table-responsive">
                                 <div id="tradingview_{{ $i ?? '00' }}"></div>
@@ -151,7 +151,7 @@
                         @endphp
                     @endif
                     @if ($layoutSetting->View_2 == $tradingSetting->id)
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <!-- TradingView Widget BEGIN -->
                             <div class="tradingview-widget-container table-responsive">
                                 <div id="tradingview_{{ $i ?? '00' }}"></div>
@@ -213,7 +213,7 @@
             @if ($layoutSetting->trading_layout_id == 4)
                 @foreach ($tradingSettings as $tradingSetting)
                     @if ($layoutSetting->View_1 == $tradingSetting->id)
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <!-- TradingView Widget BEGIN -->
                             <div class="tradingview-widget-container table-responsive">
                                 <div id="tradingview_{{ $i ?? '00' }}"></div>
@@ -225,11 +225,8 @@
                             $i++;
                         @endphp
                     @endif
-                @endforeach
-
-                @foreach ($tradingSettings as $tradingSetting)
                     @if ($layoutSetting->View_2 == $tradingSetting->id)
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <!-- TradingView Widget BEGIN -->
                             <div class="tradingview-widget-container table-responsive">
                                 <div id="tradingview_{{ $i ?? '00' }}"></div>
@@ -242,7 +239,7 @@
                         @endphp
                     @endif
                     @if ($layoutSetting->View_3 == $tradingSetting->id)
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <!-- TradingView Widget BEGIN -->
                             <div class="tradingview-widget-container table-responsive">
                                 <div id="tradingview_{{ $i ?? '00' }}"></div>
@@ -255,7 +252,7 @@
                         @endphp
                     @endif
                     @if ($layoutSetting->View_4 == $tradingSetting->id)
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <!-- TradingView Widget BEGIN -->
                             <div class="tradingview-widget-container table-responsive">
                                 <div id="tradingview_{{ $i ?? '00' }}"></div>

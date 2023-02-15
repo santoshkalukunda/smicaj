@@ -1,8 +1,8 @@
 @push('scripts')
     <script type="text/javascript">
         new TradingView.widget({
-            "width": {{ $tradingSetting->width ?? '900' }},
-            "height": {{ $tradingSetting->height ?? '900' }},
+            "width": {{$layoutView->height  ?? $tradingSetting->width }},
+            "height": {{ $layoutView->height ?? $tradingSetting->height}},
             "symbol": "NASDAQ:AAPL",
             "interval": "{{ $tradingSetting->interval ?? "1" }}",
             "timezone": "{{ $tradingSetting->timezone ?? 'Asia/Kathmandu' }}",

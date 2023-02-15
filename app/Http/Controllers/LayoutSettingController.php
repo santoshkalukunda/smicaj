@@ -35,7 +35,7 @@ class LayoutSettingController extends Controller
         $layoutSetting = $tradingLayout->layoutSettings()->first();
         // return $layoutSetting;
         if ($layoutSetting) {
-            return redirect()->route('layout-settings.edit',[$tradingLayout, $layoutSetting]);
+            return redirect()->route('layout-settings.show',[$tradingLayout, $layoutSetting]);
         } else {
             $layoutViews = $tradingLayout->layoutViews()->get();
             $tradingSettings = TradingSetting::get();
