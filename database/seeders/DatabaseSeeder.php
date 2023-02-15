@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         UserSeeder::class,
         IndicatorSeeder::class,
         TradingLayoutSeeder::class,
-        layoutViewSeeder::class
+        LayoutViewSeeder::class
       ]
     );
 
