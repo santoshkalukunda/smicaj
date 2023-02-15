@@ -24,9 +24,18 @@
     <div class="row justify-content-center">
         @foreach ($tradingLayouts as $tradingLayout)
             <div class="col-md-6 p-4">
-                <a href="{{ route('layout-settings.create', $tradingLayout) }}">
-                    <div class="card box" style="height: 15rem;">
-                        <div class="card-header text-capitalize">{{ $tradingLayout->name }}</div>
+                <div class="card box" style="height: 15rem;">
+                    <div class="card-header text-capitalize d-flex justify-content-between">
+                        <div>{{ $tradingLayout->name }}</div>
+                        
+                        {{-- <div class="ml-auto">
+                            <a href="{{ route('layout-settings.create', $tradingLayout) }}">
+                                Edit 
+                            </a>
+                        </div> --}}
+                        
+                    </div>
+                    <a href="{{ route('layout-settings.create', $tradingLayout) }}">
                         <div class="card-body">
                             <table class="table table-bordered border border-primary">
                                 @if ($tradingLayout->id == 1)
@@ -76,8 +85,8 @@
 
                             </table>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
         @endforeach
     </div>
