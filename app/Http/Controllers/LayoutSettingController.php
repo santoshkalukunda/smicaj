@@ -72,9 +72,11 @@ class LayoutSettingController extends Controller
      */
     public function show(TradingLayout $tradingLayout, LayoutSetting $layoutSetting)
     {
+
+        $tradingLayouts = TradingLayout::with('layoutViews')->get();
         $layoutViews = $tradingLayout->layoutViews()->get();
         $tradingSettings = TradingSetting::get();
-        return view('backend.layout-setting.show', compact('tradingLayout', 'layoutViews', 'tradingSettings', 'layoutSetting'));
+        return view('backend.layout-setting.show', compact('tradingLayout', 'layoutViews', 'tradingSettings', 'layoutSetting','tradingLayouts'));
     
     }
 

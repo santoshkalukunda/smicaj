@@ -1,20 +1,119 @@
 @extends('layouts.app')
 @section('content')
     <!-- Content Header (Page header) -->
-    <div class="row py-2">
-        <div class="col-sm-6 text-center">
-            <h4 class="my-2"> {{ $title = 'Layout Setting' }} </h3>
-        </div><!-- /.col -->
-        <div class="col-sm-6">
-            <div class="text-right">
+    <div class="m-2">
+        <div class="d-flex justify-content-between ">
+            <div>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#layoutSeting">
                     Change Layout Setting
                 </button>
 
-            </div>
+                <div class="modal fade" id="layoutSeting" tabindex="-1" aria-labelledby="layoutSetingLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="layoutSetingLabel">Change Layout Setting</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="justify-content-center">
+                                    <div class="row justify-content-center">
+                                        @foreach ($tradingLayouts as $tradingLayout)
+                                            <div class="col-md-6 p-4">
+                                                <div class="card box" style="height: 15rem;">
+                                                    <div class="card-header text-capitalize d-flex justify-content-between">
+                                                        <div>{{ $tradingLayout->name }}</div>
 
+                                                        {{-- <div class="ml-auto">
+                                                            <a href="{{ route('layout-settings.create', $tradingLayout) }}">
+                                                                Edit 
+                                                            </a>
+                                                        </div> --}}
+
+                                                    </div>
+                                                    <a href="{{ route('layout-settings.create', $tradingLayout) }}">
+                                                        <div class="card-body">
+                                                            <table class="table table-bordered border border-primary">
+                                                                @if ($tradingLayout->id == 1)
+                                                                    <tr>
+                                                                        <td class="text-center py-3">View 1</td>
+                                                                    </tr>
+                                                                @endif
+
+                                                                @if ($tradingLayout->id == 2)
+                                                                    <tr>
+                                                                        <td class="text-center py-3">View 1</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center py-3">View 2</td>
+                                                                    </tr>
+                                                                @endif
+                                                                @if ($tradingLayout->id == 3)
+                                                                    <tr>
+                                                                        <td colspan="2" class="text-center py-3">View 1
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center py-3">
+                                                                            View 2
+                                                                        </td>
+                                                                        <td class="text-center py-3">
+                                                                            View 3
+                                                                        </td>
+                                                                    </tr>
+                                                                @endif
+
+                                                                @if ($tradingLayout->id == 4)
+                                                                    <tr>
+                                                                        <td colspan="3" class="text-center py-3">View 1
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-center py-3">
+                                                                            View 2
+                                                                        </td>
+                                                                        <td class="text-center py-3">
+                                                                            View 3
+                                                                        </td>
+                                                                        <td class="text-center py-3">
+                                                                            View 4
+                                                                        </td>
+                                                                    </tr>
+                                                                @endif
+
+                                                            </table>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> --}}
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.col -->
+            <div>
+                <h4 class="my-2">
+                    {{ $title = 'Layout Setting' }}
+                </h4>
+            </div>
+            <div class="ml-auto">
+                <div class="text-right">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Change Layout View Setting
+                    </button>
+                </div>
+            </div>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
