@@ -198,7 +198,7 @@
                     <label for="macdStatus" class="form-label">MACD Status</label>
                     <select class="form-select" name="macd_enable">
                         <option value="1" {{ $stock->macd_enable == 1 ? 'selected' : '' }}>Enable</option>
-                        <option value="0" {{ $stock->macd_enable == 0 ? 'selected' : '' }}>Desable</option>
+                        <option value="0" {{ $stock->macd_enable == 0 ? 'selected' : '' }}>Disable</option>
                     </select>
                 </div>
             </div>
@@ -245,7 +245,7 @@
                     <label for="macdStatus" class="form-label">RSI Status</label>
                     <select class="form-select" name="rsi_enable">
                         <option value="1" {{ $stock->rsi_enable == 1 ? 'selected' : '' }}>Enable</option>
-                        <option value="0" {{ $stock->rsi_enable == 0 ? 'selected' : '' }}>Desable</option>
+                        <option value="0" {{ $stock->rsi_enable == 0 ? 'selected' : '' }}>Disable</option>
                     </select>
                 </div>
             </div>
@@ -292,7 +292,7 @@
                     <label for="macdStatus" class="form-label">EMA Status</label>
                     <select class="form-select" name="ema_enable">
                         <option value="1" {{ $stock->ema_enable == 1 ? 'selected' : '' }}>Enable</option>
-                        <option value="0" {{ $stock->ema_enable == 0 ? 'selected' : '' }}>Desable</option>
+                        <option value="0" {{ $stock->ema_enable == 0 ? 'selected' : '' }}>Disable</option>
                     </select>
                 </div>
             </div>
@@ -337,7 +337,7 @@
                     <label for="macdStatus" class="form-label">SMA Status</label>
                     <select class="form-select" name="sma_enable">
                         <option value="1" {{ $stock->sma_enable == 1 ? 'selected' : '' }}>Enable</option>
-                        <option value="0" {{ $stock->sma_enable == 0 ? 'selected' : '' }}>Desable</option>
+                        <option value="0" {{ $stock->sma_enable == 0 ? 'selected' : '' }}>Disable</option>
                     </select>
                 </div>
             </div>
