@@ -1,4 +1,4 @@
-@extends('backend.app')7
+@extends('backend.app')
 @section('content')
     @push('styles')
         <style>

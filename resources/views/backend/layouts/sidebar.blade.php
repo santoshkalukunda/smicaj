@@ -156,14 +156,26 @@
                 </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('layout-settings.index') }}">
-                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <i class="bi bi-diagram-3"></i>
                         {{ __('Layout Setting') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('trading-settings.index') }}">
-                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <i class="bi bi-bar-chart-steps"></i>
                         {{ __('Trading Setting') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('stocks.chart') }}">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        {{ __('Chart') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('stocks.index') }}">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        {{ __('Stock') }}
                     </a>
                 </li>
                 <li class="nav-item">

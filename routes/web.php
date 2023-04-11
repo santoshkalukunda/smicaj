@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LayoutSettingController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\StockController;
 use App\Http\Controllers\TradingSettingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -41,6 +42,17 @@ Route::group(['middleware' => ['role:admin|super-admin']], function () {
     Route::get('trading-settings/edit/{tradingSetting}', [TradingSettingController::class, 'edit'])->name("trading-settings.edit");
     Route::put('trading-settings/{tradingSetting}', [TradingSettingController::class, 'update'])->name("trading-settings.update");
     Route::delete('trading-settings/{tradingSetting}', [TradingSettingController::class, 'destroy'])->name("trading-settings.destroy");
+
+    //stock
+    Route::get('stocks', [StockController::class, 'index'])->name("stocks.index");
+    Route::get('stocks/create', [StockController::class, 'create'])->name("stocks.create");
+    Route::post('stocks', [StockController::class, 'store'])->name("stocks.store");
+    Route::get('stocks/search', [StockController::class, 'search'])->name("stocks.search");
+    Route::get('charts', [StockController::class, 'chart'])->name("stocks.chart");
+    Route::get('stocks/{stock}/edit', [StockController::class, 'edit'])->name("stocks.edit");
+    Route::put('stocks/{stock}', [StockController::class, 'update'])->name("stocks.update");
+    Route::delete('stocks/{stock}', [StockController::class, 'destroy'])->name("stocks.destroy");
+
 });
 
 
@@ -58,8 +70,8 @@ Route::post('layout-settings/{tradingLayout}/store',[LayoutSettingController::cl
 
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 
-Route::get('buy', function () {
-    return view('backend.intradrading.long-term.buy');
+Route::get('stock', function () {
+    return view('stock.index');
 });
 
 

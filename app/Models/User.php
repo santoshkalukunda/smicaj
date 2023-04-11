@@ -40,6 +40,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(TradingSetting::class);
     }
+    public function stock()
+    {
+        return $this->hasMany(Stock::class,'user_id');
+    }
 
     public function LayoutSetting()
     {
