@@ -43,6 +43,7 @@
         <div class="col-md-12">
             <div id="tvchart"></div>
         </div>
+        
     </div>
     @push('scripts')
         <script src="{{ asset('lightweightCharts/tv.js') }}"></script>
@@ -55,7 +56,7 @@
                 error
             } = console;
             const getData = async () => {
-                const resp = await fetch(`http://localhost:3000/api/stock/${stock_id}/${symbol}/${interval}`);
+                const resp = await fetch(`{{env('APP_API','http://localhost:3000')}}/api/stock/${stock_id}/${symbol}/${interval}`);
                 const data = await resp.json();
                 return data;
 
