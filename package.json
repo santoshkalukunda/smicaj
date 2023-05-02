@@ -21,6 +21,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "lightweight-charts": "^4.0.0"
+        "lightweight-charts": "^4.0.1",
+        "tulind": "^0.8.20"
     }
 }
