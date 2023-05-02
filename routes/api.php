@@ -27,7 +27,7 @@ Route::get('/stock/{stock}', function (Stock $stock) {
 Route::get('binance', function (Request $request) {
     return Http::get('http://api.binance.com/api/v3/klines', [
         'symbol' => $request->symbol ?? 'BTCUSDT',
-        'interval' => $request->symbol ?? '1s',
+        'interval' => $request->interval ?? '1s',
         'limit' => $request->limit ?? 1000,
     ])->json();
 });
