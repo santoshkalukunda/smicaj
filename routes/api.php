@@ -29,5 +29,5 @@ Route::get('binance', function (Request $request) {
         'symbol' => $request->symbol ?? 'BTCUSDT',
         'interval' => $request->symbol ?? '1s',
         'limit' => $request->limit ?? 1000,
-    ])->body();
+    ])->json();
 });
